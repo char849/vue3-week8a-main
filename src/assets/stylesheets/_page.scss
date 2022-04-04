@@ -48,7 +48,9 @@
 .class {
   background-color: #e8e7e7 !important;
 }
-.nav-link {
+
+// CourseView.vue
+.nav-link01 {
   &:hover {
     background-color: $secondary !important;
     color: white !important;
@@ -63,6 +65,9 @@
     background-color: $secondary !important;
     color: #fff !important;
   }
+}
+.list-group-item.active {
+  background-color: $secondary !important;
 }
 
 // CartView.vue

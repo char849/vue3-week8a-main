@@ -51,7 +51,7 @@
                 <h4 class="m-0">課程內容</h4>
               </button>
               <button
-                class="nav-link w-100 d-flex class align-items-center text-start p-4 mb-4"
+                class="nav-link nav-link01 w-100 d-flex class align-items-center text-start p-4 mb-4"
                 data-bs-toggle="pill"
                 data-bs-target="#tab-pane-2"
                 type="button"
@@ -62,7 +62,7 @@
                 <h4 class="m-0">開課資訊</h4>
               </button>
               <button
-                class="nav-link w-100 d-flex class align-items-center text-start p-4 mb-4"
+                class="nav-link nav-link01 w-100 d-flex class align-items-center text-start p-4 mb-4"
                 data-bs-toggle="pill"
                 data-bs-target="#tab-pane-3"
                 type="button"
@@ -73,7 +73,7 @@
                 <h4 class="m-0">課程教材準備</h4>
               </button>
               <button
-                class="nav-link w-100 d-flex class align-items-center text-start p-4 mb-0"
+                class="nav-link nav-link01 w-100 d-flex class align-items-center text-start p-4 mb-0"
                 data-bs-toggle="pill"
                 data-bs-target="#tab-pane-4"
                 type="button"
