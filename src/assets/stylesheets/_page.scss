@@ -15,22 +15,48 @@
 // }
 
 // ProductView.vue
-.picture{
-  object-fit:cover;
+.picture {
+  object-fit: cover;
   width: 100px;
   height: 100px;
-  @media(min-width:320px){
-    object-fit:cover;
+  @media (min-width: 320px) {
+    object-fit: cover;
     width: 80px;
     height: 80px;
   }
-  @media(min-width:992px){
-    object-fit:cover;
+  @media (min-width: 992px) {
+    object-fit: cover;
     width: 100px;
     height: 100px;
   }
 }
+
+.nav-pills .nav-link.active {
+  background-color: $secondary !important;
+  color: white;
+}
+.class.active,
+.class {
+  &:focus {
+    background-color: $secondary !important;
+    color: white;
+  }
+  &:hover {
+    color: white;
+  }
+}
+.class {
+  background-color: #e8e7e7 !important;
+}
+.nav-link {
+  &:hover {
+    background-color: $secondary !important;
+    color: white !important;
+  }
+}
+
 // ProductsView.vue
+.list-group-item.active,
 .page-item.active .page-link,
 .page-link {
   &:focus {
@@ -38,8 +64,6 @@
     color: #fff !important;
   }
 }
-  
-
 
 // CartView.vue
 .form-select,
@@ -69,19 +93,18 @@
     color: $secondary !important;
   }
 }
-  
+
 #btn01 {
-  padding: 00.25rem 0.5rem ;
+  padding: 00.25rem 0.5rem;
 }
 .input-group-text,
 .form-select {
-  border: 1px solid $secondary ; 
+  border: 1px solid $secondary;
 }
 .form-control {
   &:focus {
-    border: 1px solid #ced4da ;
+    border: 1px solid #ced4da;
     background-color: #fff;
-    color: #303840 ;
+    color: #303840;
   }
 }
- 
