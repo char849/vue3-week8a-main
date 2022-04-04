@@ -1,0 +1,87 @@
+.btn-outline-secondary {
+  &:hover {
+    color: #ffffff;
+  }
+}
+
+.bg-cover {
+  background-size: cover;
+  background-position: center center;
+  object-fit: cover;
+}
+
+// img {
+//   height: 80%;
+// }
+
+// ProductView.vue
+.picture{
+  object-fit:cover;
+  width: 100px;
+  height: 100px;
+  @media(min-width:320px){
+    object-fit:cover;
+    width: 80px;
+    height: 80px;
+  }
+  @media(min-width:992px){
+    object-fit:cover;
+    width: 100px;
+    height: 100px;
+  }
+}
+// ProductsView.vue
+.page-item.active .page-link,
+.page-link {
+  &:focus {
+    background-color: $secondary !important;
+    color: #fff !important;
+  }
+}
+  
+
+
+// CartView.vue
+.form-select,
+.input-group-text {
+  background-color: #fff;
+}
+.form-control {
+  background-color: #fff;
+}
+.form-control:focus {
+  border-color: 1px solid #ced4da;
+  color: $secondary !important;
+}
+.btn-secondary {
+  background-color: $secondary !important;
+  color: #ffffff;
+}
+.btn-secondary:hover {
+  border-color: $secondary !important;
+  background-color: transparent;
+  color: $secondary !important;
+}
+.btn-secondary {
+  &:focus {
+    border-color: $secondary !important;
+    background-color: transparent;
+    color: $secondary !important;
+  }
+}
+  
+#btn01 {
+  padding: 00.25rem 0.5rem ;
+}
+.input-group-text,
+.form-select {
+  border: 1px solid $secondary ; 
+}
+.form-control {
+  &:focus {
+    border: 1px solid #ced4da ;
+    background-color: #fff;
+    color: #303840 ;
+  }
+}
+ 

@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap");
+
+// ~ 是對應到 node_modules 裡面的檔案
+@import "~bootstrap/scss/functions"; // 原生的scss
+
+// ./當前資料 assets
+@import "./stylesheets/variables"; //自定義
+@import "./stylesheets/frontNavbar";
+@import "./stylesheets/swiper";
+@import "./stylesheets/header";
+@import "./stylesheets/nav";
+@import "./stylesheets/page";
+
+
+@import "~bootstrap/scss/bootstrap";
