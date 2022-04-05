@@ -13,7 +13,7 @@
     <h2
       class="position-absolute text-hv-center top-50 start-50 h2 fw-bold text-white-50 pageBanner-text"
     >
-      About
+      About Us
     </h2>
   </header>
   <div class="container px-3">
