@@ -4,47 +4,66 @@ const routes = [
   {
     path: '/',
     name: '前台',
-    component: () => import('@/views/frontend/FrontView.vue'),
+    component: () => import('../views/frontend/FrontView.vue'),
     children: [
       {
         path: '',
         name: '首頁',
-        component: () => import('@/views/frontend/HomeView.vue')
+        component: () => import('../views/frontend/HomeView.vue')
       },
       {
         path: 'about', // 關於漢文帝
         name: '關於漢文帝',
-        component: () => import('@/views/frontend/AboutView.vue')
+        component: () => import('../views/frontend/AboutView.vue')
       },
       {
         path: 'products', // 產品列表
         name: '產品列表',
-        component: () => import('@/views/frontend/ProductsView.vue')
+        component: () => import('../views/frontend/ProductsView.vue')
       },
       {
         path: 'product/:id', // 單一產品 :動態的參數
         name: '單一產品',
-        component: () => import('@/views/frontend/ProductView.vue')
+        component: () => import('../views/frontend/ProductView.vue')
       },
       {
         path: 'favorite', // 我的最愛
         name: '我的最愛',
-        component: () => import('@/views/frontend/FavoriteView.vue')
+        component: () => import('../views/frontend/FavoriteView.vue')
       },
       {
         path: 'course', // 課程招生
         name: '課程招生',
-        component: () => import('@/views/frontend/CourseView.vue')
+        component: () => import('../views/frontend/CourseView.vue')
       },
       {
         path: 'cart', // 購物車
         name: '購物車',
-        component: () => import('@/views/frontend/CartView.vue')
+        component: () => import('../views/frontend/CartView.vue')
       },
       {
         path: 'order/:id',
         name: '結帳',
         component: () => import('../views/frontend/OrderView.vue')
+      }
+    ]
+  },
+  {
+    path: '/login',
+    component: () => import('../views/admin/LoginView.vue')
+  },
+  // 後台
+  {
+    path: '/admin', // 後台首頁
+    component: () => import('../views/admin/DashboardView.vue'),
+    children: [
+      {
+        path: 'products', // admin/products
+        component: () => import('../views/admin/AdminProducts.vue')
+      },
+      {
+        path: 'orders', // admin/products
+        component: () => import('../views/admin/AdminOrders.vue')
       }
     ]
   }

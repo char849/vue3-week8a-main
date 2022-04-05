@@ -72,17 +72,6 @@
               >課程招生</router-link
             >
           </li>
-          <!-- <li class="nav-item">
-            <router-link class="nav-link" to="/login">登入產品後台</router-link>
-          </li> -->
-          <!-- <li class="nav-item">
-            <router-link
-              v-if="status === true"
-              class="nav-link"
-              to="/admin/products"
-              >產品後台</router-link
-            >
-          </li> -->
         </ul>
       </div>
       <!-- lg 以上 -->
@@ -135,7 +124,7 @@ export default {
         src: 'https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1647191678439.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=B0LplI80HOeontFEvfNoc9%2BU5hkaT%2B5UrdC5SWznp%2FRDUpOtQIw1EUuYgsI0Zor9j9%2BMMlqpbEEciXrhy%2FfNT5cop71NKZCjtHNJX3YPYRlGRctIyBB7b3tZ2vVBMbhgDi9l5Azwg8sMX%2BI3EuTb%2BR0qFFwyNBzBpuGPGazvFmWMr0OpCy6yoCZlJettNvgTheUAJ8zYrSCct%2F08StB2q0%2F57WiylkU53IDebLkuudtumAJlKsdu4b5YLrirR3BhVWiDc3vUtxlF9DBzqh55HRvBTkXkyf3yVcoRTiqSA9fGPGZbUGhjXpRHpMr6iN4d0RBbuPlgIjOe2hVWBMee5Q%3D%3D'
       },
       cartData: {
-        carts: [] // 14. 加入第二層 carts: [] html的清空購物車那邊就可以寫入它的結構了
+        carts: [] // 加入第二層 carts: [] html的清空購物車那邊就可以寫入它的結構了
       },
       favoriteList: [],
       collapse: '',

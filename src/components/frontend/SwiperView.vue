@@ -82,7 +82,7 @@
       </template>
     </div>
   </div>
-  <Loading :active="isLoading"></Loading>
+  <Loading :active="isLoading"/>
 </template>
 
 <script>

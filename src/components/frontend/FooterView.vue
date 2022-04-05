@@ -9,7 +9,7 @@
 
         <small class="d-block mt-1"
           >漢文帝 &copy; {{ new Date().getFullYear() }} copyright
-          <router-link href="#">後台管理</router-link></small
+          <router-link to="/login">後台管理</router-link></small
         >
       </p>
       <ul class="list-unstyled d-flex justify-content-center mb-2 mb-lg-3">

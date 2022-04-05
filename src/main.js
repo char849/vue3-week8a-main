@@ -71,5 +71,4 @@ app.component('Form', Form)
 app.component('Field', Field)
 app.component('ErrorMessage', ErrorMessage)
 
-app.use(router)
 app.mount('#app')

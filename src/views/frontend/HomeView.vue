@@ -1,7 +1,7 @@
 <template>
   <HeaderView />
   <SwiperView category="熱門" data-aos="fade-up" />
-  <NoticeView></NoticeView>
+  <NoticeView/>
 </template>
 
 <script>

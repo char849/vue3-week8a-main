@@ -241,8 +241,8 @@
       </div>
     </div>
   </div>
-  <NoticeView></NoticeView>
-  <Loading :active="isLoading"></Loading>
+  <NoticeView/>
+  <Loading :active="isLoading"/>
 </template>
 
 <script>
@@ -315,15 +315,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.btn-secondary {
-  background-color: #f82888;
-  color: #ffffff;
-}
-.btn-secondary:hover {
-  border-color: #f82888;
-  background-color: transparent;
-  color: #f82888 !important;
-}
-</style>

@@ -263,8 +263,8 @@
       </div>
     </div>
   </div>
-  <NoticeView></NoticeView>
-  <Loading :active="isLoading"></Loading>
+  <NoticeView/>
+  <Loading :active="isLoading"/>
 </template>
 <script>
 import NoticeView from '@/components/frontend/NoticeView.vue'
@@ -336,7 +336,6 @@ export default {
           this.getCart()
           // 讀取完後，清空id
           this.isLoadingItem = ''
-          // get-cart
           this.emitter.emit('get-cart')
         })
     },
@@ -360,7 +359,7 @@ export default {
           this.$swal(res.data.message, '', 'success')
         })
     },
-    // 14. 刪除購物車內容
+    // 刪除購物車內容
     delAllCarts () {
       this.isLoading = true
       this.$http

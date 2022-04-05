@@ -97,7 +97,7 @@
       </div>
     </div>
   </div>
-  <Loading :active="isLoading"></Loading>
+  <Loading :active="isLoading"/>
 </template>
 
 <script>
@@ -152,7 +152,7 @@ export default {
         .then((res) => {
           // 把產品列表存起來，準備呈現在畫面
           this.products = res.data.products
-          // this.isLoading = false;
+          this.isLoading = false
         })
     },
     getProduct (id) {
@@ -194,7 +194,6 @@ export default {
         ) // 將資料格式帶入
         .then((res) => {
           // 加入購物車後，再重新取得購物車內容
-          // this.getCart();
           // 讀取完後，清空id
           this.isLoadingItem = ''
           this.$swal(res.data.message)

@@ -143,10 +143,6 @@ export default {
       },
       products: [],
       favoriteList: [],
-      // 購物車列表
-      cartData: {
-        carts: [] // 加入第二層 carts: [] html的清空購物車那邊就可以寫入它的結構了
-      },
       isLoadingItem: '', // 局部讀取效果的變數
       isLoading: false
     }
@@ -197,26 +193,24 @@ export default {
         })
     },
     addCart (id, qty = 1) {
-      // 5. 加入購物車的資料格式
+      // 加入購物車的資料格式
       const data = {
         product_id: id,
         qty
       }
-      this.isLoadingItem = id // 6. 帶入讀取的id
+      this.isLoadingItem = id // 帶入讀取的id
       this.isLoading = true
       this.$http
         .post(
           `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`,
           { data }
-        ) // 5. 將資料格式帶入
+        ) // 將資料格式帶入
         .then((res) => {
           this.isLoading = false
           // 加入購物車後，再重新取得購物車內容
-          // this.getCart();
           // 讀取完後，清空id
           this.isLoadingItem = ''
           this.$swal(res.data.message)
-          // get-cart
           this.emitter.emit('get-cart')
         })
     },
