@@ -121,6 +121,7 @@
 import NoticeView from '@/components/frontend/NoticeView.vue'
 
 export default {
+  name: '我的最愛',
   inject: ['emitter'],
   components: {
     NoticeView

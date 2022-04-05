@@ -10,6 +10,7 @@ import HeaderView from '@/components/frontend/HeaderView.vue'
 import NoticeView from '@/components/frontend/NoticeView.vue'
 
 export default {
+  name: '首頁',
   components: {
     SwiperView,
     HeaderView,

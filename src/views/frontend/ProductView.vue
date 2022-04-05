@@ -103,6 +103,7 @@
 <script>
 
 export default {
+  name: '單一產品',
   inject: ['emitter'],
   data () {
     return {
@@ -208,24 +209,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.bg-cover {
-  background-size: cover;
-  background-position: center center;
-  object-fit: cover;
-}
-.btn-outline-secondary:hover {
-  color: #fff;
-}
-.form-select {
-  background-color: #fff;
-  border: 1px solid #f82888;
-}
-.form-select:focus {
-  border: 1px solid #f82888;
-}
-.btn {
-  padding: 0.375rem 0.75rem !important;
-}
-</style>

@@ -13,7 +13,7 @@
     <h2
       class="position-absolute text-hv-center top-50 start-50 h2 fw-bold text-white-50 pageBanner-text"
     >
-      Products List
+      About
     </h2>
   </header>
   <div class="container px-3">
@@ -74,6 +74,7 @@
 <script>
 import AboutSwperView from '@/components/frontend/AboutSwiperView.vue'
 export default {
+  name: '關於漢文帝',
   data () {
     return {
       isLoading: false

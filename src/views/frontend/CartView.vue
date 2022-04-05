@@ -56,7 +56,7 @@
         <div class="row justify-content-center">
           <div class="col-md-6">
             <div class="text-end">
-              <!-- 14. js data 那邊要定義到第二層 carts: [] 才能使用，如果寫成 cartData.carts?.( ?.可選串連) length [es6 的寫法] 就不用定義第二層 carts -->
+              <!-- js data 那邊要定義到第二層 carts: [] 才能使用，如果寫成 cartData.carts?.( ?.可選串連) length [es6 的寫法] 就不用定義第二層 carts -->
               <button
                 id="btn02"
                 class="btn btn-outline-secondary fw-bold py-3 px-4 mb-4"
@@ -270,12 +270,16 @@
 import NoticeView from '@/components/frontend/NoticeView.vue'
 
 export default {
+  name: '購物車',
   inject: ['emitter'],
   components: {
     NoticeView
   },
   data () {
     return {
+      cartData: {
+        carts: [] // 加入第二層 carts: [] html的清空購物車那邊就可以寫入它的結構了
+      },
       // 表單驗證格式
       form: {
         user: {
@@ -353,6 +357,7 @@ export default {
           this.getCart()
           // 讀取完後，清空id
           this.isLoadingItem = ''
+          this.$swal(res.data.message, '', 'success')
         })
     },
     // 14. 刪除購物車內容

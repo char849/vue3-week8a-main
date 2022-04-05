@@ -42,5 +42,12 @@
     "eslint-plugin-vue": "^7.0.0",
     "sass": "^1.49.11",
     "sass-loader": "^8.0.2"
+  },
+  "eslintConfig": {
+    "root": true,    
+    "extends": [
+      "plugin:vue/recommended",
+      "@vue/standard"
+    ]    
   }
 }

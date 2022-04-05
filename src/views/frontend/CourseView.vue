@@ -277,6 +277,7 @@
 
 <script>
 export default {
+  name: '課程招生',
   data () {
     return {
       articles: [],

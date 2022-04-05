@@ -132,6 +132,7 @@
 <script>
 
 export default {
+  name: '產品列表',
   inject: ['emitter'],
   data () {
     return {

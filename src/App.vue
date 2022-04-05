@@ -11,7 +11,6 @@ export default {
   }
 }
 </script>
-
 <style lang="scss">
 // ./當前資料 assets
 @import "./assets/all";
