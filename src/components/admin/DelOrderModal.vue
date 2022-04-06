@@ -10,7 +10,7 @@
   >
     <div class="modal-dialog" role="document">
       <div class="modal-content border-0">
-        <div class="modal-header bg-danger text-white">
+        <div class="modal-header bg-success text-white">
           <h5 class="modal-title">
             <span>刪除 {{ item.title }}</span>
           </h5>
@@ -29,14 +29,14 @@
         <div class="modal-footer">
           <button
             type="button"
-            class="btn btn-outline-secondary"
+            class="btn btn-outline-dark"
             data-bs-dismiss="modal"
           >
             取消
           </button>
           <button
             type="button"
-            class="btn btn-danger"
+            class="btn btn-secondary"
             @click="$emit('del-order-item')"
           >
             確認刪除

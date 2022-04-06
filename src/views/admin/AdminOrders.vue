@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <template v-for="(item, key) in orders" :key="key">
-        <tr v-if="orders.length" :class="{ 'text-secondary': !item.is_paid }">
+        <tr v-if="orders.length" :class="{ 'text-danger': !item.is_paid }">
           <td>{{ date(item.create_at) }}</td>
           <td><span v-text="item.user.email" v-if="item.user"></span></td>
           <td>
@@ -44,14 +44,14 @@
           <td>
             <div class="btn-group">
               <button
-                class="btn btn-outline-primary btn-sm"
+                class="btn btn-outline-dark btn-sm"
                 type="button"
                 @click="openOrdersModal(item)"
               >
                 檢視
               </button>
               <button
-                class="btn btn-outline-danger btn-sm"
+                class="btn btn-outline-secondary btn-sm"
                 type="button"
                 @click="openDelOrderModal(item)"
               >

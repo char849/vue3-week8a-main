@@ -4,7 +4,7 @@
     <h2>後台產品管理列表</h2>
     <div class="text-end mt-4">
       <button
-        class="btn btn-primary"
+        class="btn btn-secondary fw-bold"
         type="button"
         @click="openModal('isNew', 'item')"
       >
@@ -44,33 +44,30 @@
             {{ item.price }}
           </td>
           <td>
-            <button
-              type="button"
-              class="btn btn-sm"
+            <!-- <span
               :class="{
-                'btn-success': item.is_enabled,
-                'btn-light': !item.is_enabled,
+                'btn-outline-secondary': !item.is_enabled,
+                'btn-outline-dark': item.is_enabled,
               }"
-              @click="item.is_enabled = !item.is_enabled"
             >
               {{ item.is_enabled ? "啟用" : "未啟用" }}
-            </button>
-            <!-- <span
-            :class="[item.is_enabled === 1?'text-success': 'text-muted']">
-              {{item.is_enabled === 1? '啟用':'未啟用'}}</span> -->
+            </span> -->
+            <span
+            :class="[item.is_enabled === 1?'text-secondary': 'text-danger']">
+              {{item.is_enabled === 1? '啟用':'未啟用'}}</span>
           </td>
           <td>
             <div class="btn-group">
               <button
                 type="button"
-                class="btn btn-outline-primary btn-sm"
+                class="btn btn-outline-success btn-sm"
                 @click="openModal('edit', item)"
               >
                 編輯
               </button>
               <button
                 type="button"
-                class="btn btn-outline-danger btn-sm"
+                class="btn btn-outline-secondary btn-sm"
                 @click="openModal('delete', item)"
               >
                 刪除

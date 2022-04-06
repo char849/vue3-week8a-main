@@ -61,9 +61,9 @@
   }
 }
 
-.btn {
-  padding: 0.375rem 0.75rem !important;
-}
+// .btn {
+//   padding: 0.375rem 0.75rem !important;
+// }
 
 // CourseView.vue
 .nav-link01 {
@@ -148,6 +148,39 @@
   padding: 15px;  
   text-align: center;
 }
+
+//Pagination.vue
+.page-item.active .page-link, .page-item {  
+   &:focus {
+    background-color: $secondary !important;  
+    color: #fff;     
+   } 
+    
+  }
+  
+.page-item.active .page-link {
+  background-color: $secondary !important;  
+  color: #fff !important;
+}
+  
+
+.page-link {  
+  color: $dark !important;  
+}
+
+// AdminOrders.vue
+.form-check-input {
+  &:checked {
+    background-color: $secondary !important; 
+  }
+}  
+
+// .form-switch .form-check-input {
+//   background-color: $dark !important; 
+// }
+  
+
+
 
 
 

@@ -72,7 +72,7 @@
 
                   <button
                     type="button"
-                    class="btn btn-outline-danger btn-sm d-block w-100"
+                    class="btn btn-outline-secondary btn fw-bold d-block w-100"
                     @click="tempProduct.imagesUrl.splice(key, 1)"
                   >
                     刪除
@@ -196,14 +196,14 @@
         <div class="modal-footer">
           <button
             type="button"
-            class="btn btn-outline-secondary"
+            class="btn btn-outline-dark"
             data-bs-dismiss="modal"
           >
             取消
           </button>
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-secondary"
             @click="updateProduct()"
           >
             確認
@@ -263,10 +263,10 @@ export default {
           if (res.data.success) {
             this.tempProduct.imageUrl = res.data.imageUrl
             this.$refs.fileInput.value = ''
-            this.$swal('res.data.message', '', 'success')
+            this.$swal(res.data.message, '', 'success')
           } else {
             this.$refs.fileInput.value = ''
-            this.$swal('res.data.message', '', 'error')
+            this.$swal(res.data.message, '', 'error')
           }
         })
         .catch((err) => {
@@ -287,7 +287,7 @@ export default {
       this.$http[httpApi](url, { data: this.tempProduct })
         .then((res) => {
           this.adminProductModal.hide()
-          this.$swal(res, status, '', 'success')
+          this.$swal(res.data.message, status, '', 'success')
           this.$emit('get-products') // 內層用('get-products')的事件, emit 來觸發外層getProducts的方法
           // this.getProducts(); //沒有getProducts, 它是外層的方法
         })

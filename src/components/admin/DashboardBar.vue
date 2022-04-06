@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="navbar navbar-expand-lg navbar-dark bg-dark"
+    class="navbar navbar-expand-lg fixed-top navbar-light text-success fw-bold bg-white"
   >
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/admin">後台首頁</router-link>
