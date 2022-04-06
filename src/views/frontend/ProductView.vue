@@ -42,7 +42,7 @@
               href="#"
               v-for="(item, index) in imagesUrl"
               :key="index"
-              @click.prevent="click(item, index)"
+              @click.prevent="subImg(item, index)"
             >
               <img class="picture pe-1 pb-2" :src="item" alt="產品圖片" />
             </a>
@@ -139,7 +139,7 @@ export default {
   },
 
   methods: {
-    click (item) {
+    subImg (item) {
       this.imgUrl = item
     },
     getProducts () {

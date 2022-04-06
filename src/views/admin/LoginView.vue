@@ -80,3 +80,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.text-muted, h2, p
+ {
+  padding: 15px;
+  text-align: center;
+}
+</style>
