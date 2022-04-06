@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <Loading :active="isLoading" :z-index="1060"/>
+    <Loading :active="isLoading" :z-index="1060" />
     <h2>後台登入頁面</h2>
-    <div class="row">
-      <div class="col-12">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-4">
         <form class="form-signin" @submit.prevent="signIn">
           <div class="form-floating">
             <input
@@ -27,21 +27,21 @@
             />
             <label for="floatingPassword">Password</label>
           </div>
-          <button class="btn btn-lg btn-primary w-100 mt-3" type="submit">
+          <button class="btn btn-lg btn-secondary w-100 mt-3" type="submit">
             登入
           </button>
         </form>
       </div>
     </div>
     <p class="mt-5 mb-3 text-muted">
-      &copy; 2022 - Charlotte Lee<br />
+      &copy; {{ new Date().getFullYear() }} - Charlotte Lee<br />
       本網站僅供個人作品使用，不提供商業用途
+      <router-link class="nav-link" to="/">返回前台首頁</router-link>
     </p>
   </div>
 </template>
 
 <script>
-
 export default {
   data () {
     return {

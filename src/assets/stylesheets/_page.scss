@@ -100,7 +100,7 @@
 }
 .btn-secondary {
   background-color: $secondary !important;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 .btn-secondary:hover {
   border-color: $secondary !important;
@@ -141,6 +141,12 @@
   border: 1px solid #ced4da !important;
   background-color: #fff !important;
   color: #303840 !important;
+}
+
+// LoginView.vue
+.text-muted, h2, p {  
+  padding: 15px;  
+  text-align: center;
 }
 
 
