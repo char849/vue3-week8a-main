@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
+  // 前台路由
   {
     path: '/',
     name: '前台',
@@ -48,11 +49,12 @@ const routes = [
       }
     ]
   },
+  // login
   {
     path: '/login',
     component: () => import('../views/admin/LoginView.vue')
   },
-  // 後台
+  // 後台路由
   {
     path: '/admin', // 後台首頁
     component: () => import('../views/admin/DashboardView.vue'),
@@ -66,6 +68,11 @@ const routes = [
         component: () => import('../views/admin/AdminOrders.vue')
       }
     ]
+  },
+  // 404
+  {
+    path: '/:pathMatch(.*)*',
+    component: () => import('@/views/NotFound.vue/')
   }
 ]
 

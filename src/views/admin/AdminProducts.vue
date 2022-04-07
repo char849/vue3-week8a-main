@@ -38,20 +38,12 @@
           <td>{{ item.category }}</td>
           <td>{{ item.title }}</td>
           <td class="text-end">
-            {{ item.origin_price }}
+            {{ $filters.currency(item.origin_price) }}
           </td>
           <td class="text-end">
-            {{ item.price }}
+            {{ $filters.currency(item.price) }}
           </td>
           <td>
-            <!-- <span
-              :class="{
-                'btn-outline-secondary': !item.is_enabled,
-                'btn-outline-dark': item.is_enabled,
-              }"
-            >
-              {{ item.is_enabled ? "啟用" : "未啟用" }}
-            </span> -->
             <span
             :class="[item.is_enabled === 1?'text-secondary': 'text-danger']">
               {{item.is_enabled === 1? '啟用':'未啟用'}}</span>
@@ -79,23 +71,20 @@
     </table>
     <!-- 前內: pages, 後外: pagination,用 v-bind -->
     <!-- 前內: get-product, 後外: getProducts, 將內層的事件送到外層用 v-on -->
-    <!-- 1.分頁元件 -->
-    <Pagination :pages="pagination" @get-product="getProducts"></Pagination>
     <!-- 分頁元件 -->
+    <Pagination :pages="pagination" @get-product="getProducts" />
     <!-- AdminProductModal -->
     <AdminProductModal
       :product="tempProduct"
       :is-new="isNew"
       ref="adminProductModal"
-      @get-products="getProducts"
-    ></AdminProductModal>
+      @get-products="getProducts" />
 
     <!-- DelProductModal model -->
     <DelProductModal
       :temp-product="tempProduct"
       ref="delProductModal"
-      @get-products="getProducts"
-    ></DelProductModal>
+      @get-products="getProducts" />
   </div>
 </template>
 

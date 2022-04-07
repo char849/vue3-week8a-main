@@ -56,14 +56,14 @@
                   </tr>
                   <tr>
                     <th>下單時間</th>
-                    <td>{{ date(tempOrder.create_at) }}</td>
+                    <td>{{ $filters.date(tempOrder.create_at) }}</td>
                   </tr>
 
                   <tr>
                     <th>付款時間</th>
                     <td>
                       <span v-if="tempOrder.paid_date">
-                        {{ date(tempOrder.paid_date) }}
+                        {{ $filters.date(tempOrder.paid_date) }}
                       </span>
 
                       <span v-else>時間不正確</span>
@@ -81,7 +81,7 @@
                   <tr>
                     <th>總金額</th>
                     <td>
-                      {{ tempOrder.total }}
+                      {{ $filters.currency(tempOrder.total) }}
                     </td>
                   </tr>
                 </tbody>
@@ -98,7 +98,7 @@
                     </th>
                     <td>{{ item.qty }} / {{ item.product.unit }}</td>
                     <td class="text-end">
-                      {{ item.final_total }}
+                      {{ $filters.currency(item.final_total) }}
                     </td>
                   </tr>
                 </tbody>
@@ -168,12 +168,6 @@ export default {
     }
   },
   methods: {
-    // 時間戳
-    date (time) {
-      const date = new Date(time * 1000)
-      return date.toLocaleDateString()
-    },
-
     updatePaid (item) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/order/${item.id}`
       const paid = {

@@ -15,20 +15,21 @@
         to="/favorite"
       >
         <i
-          class="bi bi-box2-heart fs-4"
+          class="bi bi-box2-heart fs-3"
           :class="[navClassList.nav, navClassList.text]"
         ></i
         ><span
-          v-if="favoriteLen > 0"
-          class="badge rounded-pill position-absolute translate-middle top-0 mt-2 bg-secondary"
-        ></span>
+            v-if="favoriteList?.length > 0"
+            class="badge rounded-pill position-absolute translate-middle top-0 mt-2 bg-secondary"
+          >
+          </span>
       </router-link>
       <router-link
         class="position-relative navbar-brand d-lg-none nav-link"
         to="/cart"
       >
         <i
-          class="bi bi-cart3 fs-4"
+          class="bi bi-cart3 fs-3"
           :class="[navClassList.nav, navClassList.text]"
         ></i
         ><span
@@ -85,9 +86,9 @@
             :class="[navClassList.nav, navClassList.text]"
           ></i
           ><span
-            v-if="favoriteLen > 0"
+            v-if="favoriteList?.length > 0"
             class="badge rounded-pill position-absolute translate-middle top-0 mt-2 bg-secondary"
-          >
+          >{{ favoriteList?.length }}
           </span>
         </router-link>
         <router-link
@@ -129,11 +130,6 @@ export default {
       favoriteList: [],
       collapse: '',
       bg: ''
-    }
-  },
-  computed: {
-    favoriteLen () {
-      return this.favoriteList?.length
     }
   },
   methods: {

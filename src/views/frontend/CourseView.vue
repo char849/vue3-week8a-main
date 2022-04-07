@@ -95,7 +95,7 @@
                         class="position-absolute img-fluid w-100 border rounded p-1"
                         src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1649060078449.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=AeLHm5PXkwDXd6SO%2F3OP4ynX2uptQzMFYgj3oIXSHjqDhohZY1ftP9tkFxYHEGMm3HlhrlvdqjsCkwcyuPNJvBiEeB%2BdzikNIWjqkqC7rDa9P9ascvoCag4DlzVLWaThjqyp2XSFlqfrZC61GyuzER9Rxkv0WW3h06Ec4QsNnckhF9WTIStZGwSM3aEHlXwPzxZxfYSiioT0MWhTsanm%2Fhq%2FBkC7Z1CLfNai4FE2NeIEvl2YNIxb9qjywaLjd7%2FiO4krQKR732vBnYI9Oag5eCDZ4iKhDtU6yI0zZV3jCy9RKs8DyGpVv4QVy11VJT1gGBLgHzh7X9%2B%2Ba9WFS2KKgA%3D%3D"
                         style="object-fit: cover"
-                        alt=""
+                        alt="課程內容"
                       />
                     </div>
                   </div>
@@ -130,7 +130,7 @@
                         class="position-absolute img-fluid w-100 border rounded p-1"
                         src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1649060097465.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=QuYpUEK%2FLJK2WX8sm7qhjlEUkavseUZlU8ZcjOhs%2F0vaNdxtL5FHm%2BXdmn8BeftTcsiNmeo6%2FAB1HH2Dtx2M9s7lpvkVx437L3ofe87FcVN6ji3Jahz%2FGntKrEbbCJ6PLsUZAwHjHgT1NsI4EHmg1Vr0fyvp1ywnhdXYTJnt1a%2Bl7PAjUq90cMHf7oEaU%2BgjhvP3pnswXjpzbgKjifss%2Brq8lx2wdXPR11K%2BtzWLqajDRHApkfc0d%2BkIEZPtNBh4LvoTE96dozFNkhU%2FSDZglEnOewt7QG3gYOs2z8qCrdnZpgcmoURGQ3J%2B4neHq0bagWdYd4Z2ypQ2Qh8dKGehAg%3D%3D"
                         style="object-fit: cover"
-                        alt=""
+                        alt="開課資訊"
                       />
                     </div>
                   </div>
@@ -168,7 +168,7 @@
                         class="position-absolute img-fluid border rounded p-1"
                         src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1649060113427.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=e6qCEpZcP5rhRNse9YSRHQGbpmxCn0zfYZRGG8twNF8QMz24543HlvdHkUrXluoNS7SIQD4EfhrY7nzwrVWMCP%2Bdm5Ay8pacCg2GCv2Zivae2teLADScxNbvO3wYlRzb8kbPYAEZ1zU6zXCenYtz%2BxONrVk2yH6JoJAJbUVd3LeerkfY9E57H01G4gNNYw%2F793AWVRdt6UBb5m96qAXEoAQsectWvYzoZN52N%2F6sYetD47j5yhLHTdN6RQrQ%2Fea62kZIntqwNB1vlRQ7E19kXR5AgCPVtF3wZlaZKFsBA2LbDHWJqLJtBoElOnOa%2BPPqd7mClzRSBnCR7fzV3xG7nA%3D%3D"
                         style="object-fit: cover"
-                        alt=""
+                        alt="課程教材準備"
                       />
                     </div>
                   </div>
@@ -201,7 +201,7 @@
                         class="position-absolute img-fluid border rounded p-1"
                         src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1649060132896.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=n8GoUCvvavuUMaApVCGPWmJA9TlmI0uVKDXrC%2F2ZvUSFhGwVgGYXpKLNlMgvQjuXQDnbNqNjNUHKLJzIMBBPHGhZBBoltXRPpoAXnlZzvgIAmgPnnw9g2mC3ADRo7KfAnI09vDFqKXgesNMcje7Crw4HUz%2FEhJ0sAs7AO5%2BPzvsIwZ3t6RoOPGjiu%2FXJ91afAgGdv1nORZ4VkkbU3mJOy99QyapAXE6tHzBbr3zoEeG9XEEfuIHPCD5E1RYXd7GrZdkYpgi4kFRe3X0qr11vD7PTz%2FMGcvENDDz%2Fw9LZqv49oRrBUyXCAGWfy3p4gTqZSnUPI%2FqzQOyoq1yG1ldrYA%3D%3D"
                         style="object-fit: cover"
-                        alt=""
+                        alt="線上說明會"
                       />
                     </div>
                   </div>

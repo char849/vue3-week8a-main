@@ -32,7 +32,6 @@
                 @click="getProduct(item.id)"
               >
                 <div
-                  href="#"
                   class="card_img bg-cover"
                   style="height: 250px"
                   :style="`background-image: url(${item.imageUrl})`"
@@ -52,15 +51,15 @@
                 <div class="d-flex justify-content-between">
                   <template v-if="item.origin_price === item.price">
                     <span class="h5 ms-auto"
-                      >原價： {{ item.origin_price }} 元</span
+                      >原價： {{ $filters.currency(item.origin_price) }} 元</span
                     >
                   </template>
                   <template v-else>
                     <del class="text-danger"
-                      >原價： {{ item.origin_price }} 元</del
+                      >原價： {{ $filters.currency(item.origin_price) }} 元</del
                     >
                     <span class="text-info h5 ms-auto"
-                      >特價： {{ item.price }} 元</span
+                      >特價： {{ $filters.currency(item.price) }} 元</span
                     >
                   </template>
                 </div>
@@ -82,7 +81,7 @@
       </template>
     </div>
   </div>
-  <Loading :active="isLoading"/>
+  <Loading :active="isLoading" />
 </template>
 
 <script>
@@ -192,7 +191,6 @@ export default {
     },
     // 存入我的最愛
     setFavorite (id) {
-      console.log(id)
       // 查資料裡面，有沒有這個ID
       if (this.favoriteList.includes(id)) {
         const index = this.favoriteList.findIndex((item) => item === id)

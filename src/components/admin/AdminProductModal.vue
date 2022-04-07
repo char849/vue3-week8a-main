@@ -49,7 +49,7 @@
                     @change="uploadFile"
                   />
                 </div>
-                <img class="img-fluid" :src="tempProduct.imageUrl" />
+                <img class="img-fluid" :src="tempProduct.imageUrl" alt="主產品圖" />
               </div>
               <h3 class="mb-3">多圖新增</h3>
               <div v-if="Array.isArray(tempProduct.imagesUrl)">
@@ -67,7 +67,7 @@
                         placeholder="請輸入圖片連結"
                       />
                     </div>
-                    <img class="img-fluid" :src="tempProduct.imagesUrl[key]" />
+                    <img class="img-fluid" :src="tempProduct.imagesUrl[key]" alt="次產品圖" />
                   </div>
 
                   <button

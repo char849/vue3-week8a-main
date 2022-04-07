@@ -4,7 +4,7 @@
       <div
         class="position-absolute top-50 start-50 text-white text-center translate-middle"
       >
-        <h2 class="fw-bold display-6" data-aos="fade-up">漢文帝手作模型</h2>
+        <h1 class="fw-bold display-6" data-aos="fade-up">漢文手作模型</h1>
         <hr class="mb-1 mx-n3" data-aos="fade-up" />
         <p class="fw-bold" data-aos="fade-up">
           擅長寫實風格 生物 人物 製做 由3D建模搭配3D列印後 手修雕塑上色

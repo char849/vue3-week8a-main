@@ -4,7 +4,7 @@
 @import "~bootstrap/scss/functions"; // 原生的scss
 
 // ./當前資料 assets
-@import "./stylesheets/variables"; //自定義
+@import "./stylesheets/helper/variables"; //自定義
 @import "./stylesheets/swiper";
 @import "./stylesheets/header";
 @import "./stylesheets/nav";

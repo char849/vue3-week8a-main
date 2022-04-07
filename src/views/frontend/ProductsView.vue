@@ -76,7 +76,6 @@
                 @click="getProduct(item.id)"
               >
                 <div
-                  href="#"
                   class="card_img bg-cover"
                   style="height: 250px"
                   :style="`background-image: url(${item.imageUrl})`"
@@ -97,15 +96,15 @@
                 <div class="d-flex justify-content-between">
                   <template v-if="item.origin_price === item.price">
                     <span class="h5 ms-auto"
-                      >原價： {{ item.origin_price }} 元</span
+                      >原價： {{ $filters.currency(item.origin_price) }} 元</span
                     >
                   </template>
                   <template v-else>
                     <del class="text-danger"
-                      >原價： {{ item.origin_price }} 元</del
+                      >原價： {{ $filters.currency(item.origin_price) }} 元</del
                     >
                     <span class="text-info h5 ms-auto"
-                      >特價： {{ item.price }} 元</span
+                      >特價： {{ $filters.currency(item.price) }} 元</span
                     >
                   </template>
                 </div>
@@ -129,6 +128,7 @@
     </div>
   </div>
 </template>
+
 <script>
 
 export default {
@@ -156,12 +156,6 @@ export default {
           product.category === this.list.currentCategory
       )
     }
-  },
-  created () {
-    this.getProducts()
-  },
-  mounted () {
-    this.getFavorite()
   },
   methods: {
     getProducts () {
@@ -250,6 +244,9 @@ export default {
         (product) => type === 'all' || product.category === type
       )
     }
+  },
+  created () {
+    this.getProducts()
   }
 }
 </script>

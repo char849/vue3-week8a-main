@@ -67,8 +67,8 @@
       </div>
     </div>
   </div>
-  <AboutSwperView/>
-  <Loading :active="isLoading"/>
+  <AboutSwperView />
+  <Loading :active="isLoading" />
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <DashboardBar/>
+  <DashboardBar />
   <RouterView v-if="status" />
 </template>
 

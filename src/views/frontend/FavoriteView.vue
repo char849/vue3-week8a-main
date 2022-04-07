@@ -114,7 +114,7 @@
       </div>
     </div>
   </div>
-  <NoticeView/>
+  <NoticeView />
   <Loading :active="isLoading"/>
 </template>
 

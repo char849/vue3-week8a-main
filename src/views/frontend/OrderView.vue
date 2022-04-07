@@ -90,14 +90,14 @@
                   </tr>
                   <tr>
                     <th>下單時間</th>
-                    <td>{{ date(order.create_at) }}</td>
+                    <td>{{ $filters.date(order.create_at) }}</td>
                   </tr>
 
                   <tr>
                     <th>付款時間</th>
                     <td>
                       <span v-if="order.paid_date">
-                        {{ date(order.paid_date) }}
+                        {{ $filters.date(order.paid_date) }}
                       </span>
 
                       <span v-else>時間不正確</span>
@@ -192,14 +192,14 @@
                   </tr>
                   <tr>
                     <th>下單時間</th>
-                    <td>{{ date(order.create_at) }}</td>
+                    <td>{{ $filters.date(order.create_at) }}</td>
                   </tr>
 
                   <tr>
                     <th>付款時間</th>
                     <td>
                       <span v-if="order.paid_date">
-                        {{ date(order.paid_date) }}
+                        {{ $filters.date(order.paid_date) }}
                       </span>
 
                       <span v-else>時間不正確</span>
@@ -217,7 +217,7 @@
                   <tr>
                     <th>總金額</th>
                     <td>
-                      {{ order.total }}
+                      {{ $filters.currency(order.total) }}
                     </td>
                   </tr>
                   <tr>
@@ -241,7 +241,7 @@
       </div>
     </div>
   </div>
-  <NoticeView/>
+  <NoticeView />
   <Loading :active="isLoading"/>
 </template>
 
@@ -264,12 +264,6 @@ export default {
   },
 
   methods: {
-    // 時間戳
-    date (time) {
-      const date = new Date(time * 1000)
-      return date.toLocaleDateString()
-    },
-
     getOrder () {
       this.orderId = this.$route.params.id
       this.$http

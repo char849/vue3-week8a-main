@@ -6,7 +6,7 @@
     <ul class="pagination">
       <li class="page-item" :class="{ disabled: !pages.has_pre }">
         <a
-          class="page-link"
+          class="page-link text-dark"
           href="#"
           aria-label="Previous"
           @click.prevent="$emit('get-product', pages.current_page - 1)"
@@ -18,7 +18,7 @@
         class="page-item"
         :class="{ active: page === pages.current_page }"
         v-for="page in pages.total_pages"
-        :key="page + '123'"
+        :key="[page + `123`]"
       >
         <a
           class="page-link"

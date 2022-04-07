@@ -263,9 +263,10 @@
       </div>
     </div>
   </div>
-  <NoticeView/>
-  <Loading :active="isLoading"/>
+  <NoticeView />
+  <Loading :active="isLoading" />
 </template>
+
 <script>
 import NoticeView from '@/components/frontend/NoticeView.vue'
 

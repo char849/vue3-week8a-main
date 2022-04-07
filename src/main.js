@@ -33,6 +33,8 @@ import 'animate.css'
 import '@popperjs/core'
 import App from './App.vue'
 import router from './router'
+// 引入“千分號”程式碼
+import { currency, date } from './methods/filters.js'
 
 // 定義驗證規則
 Object.keys(AllRules).forEach((rule) => {
@@ -65,6 +67,9 @@ app.component('Loading', Loading)
 app.component('Swiper', Swiper)
 app.component('SwiperSlide', SwiperSlide)
 app.use(VueSweetalert2)
+
+// 將“千分號”設定為全域屬性
+app.config.globalProperties.$filters = { currency, date }
 
 // 註冊 vee-validate 三個全域元件
 app.component('Form', Form)

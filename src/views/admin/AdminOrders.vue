@@ -1,6 +1,6 @@
 <template>
   <Loading :active="isLoading"></Loading>
-  <table class="table mt-4">
+  <table class="table mt-6">
     <thead>
       <tr>
         <th>購買時間</th>
@@ -15,7 +15,7 @@
     <tbody>
       <template v-for="(item, key) in orders" :key="key">
         <tr v-if="orders.length" :class="{ 'text-danger': !item.is_paid }">
-          <td>{{ date(item.create_at) }}</td>
+          <td>{{ $filters.date(item.create_at) }}</td>
           <td><span v-text="item.user.email" v-if="item.user"></span></td>
           <td>
             <ul class="list-unstyled">
@@ -26,7 +26,7 @@
             </ul>
           </td>
           <td><span v-text="item.user.payMethod" v-if="item.user"></span></td>
-          <td class="text-right">{{ item.total }}</td>
+          <td class="text-right">{{ $filters.currency(item.total) }}</td>
           <td>
             <div class="form-check form-switch">
               <input
@@ -64,18 +64,16 @@
     </tbody>
   </table>
   <!-- 分頁元件 -->
-  <Pagination :pages="pagination" @get-product="getOrders"></Pagination>
+  <Pagination :pages="pagination" @get-product="getOrders" />
 
   <OrderModal
     :order="tempOrder"
     ref="orderModal"
-    @update-paid="getOrders"
-  ></OrderModal>
+    @update-paid="getOrders" />
   <DelOrderModal
     :item="tempOrder"
     ref="delOrderModal"
-    @del-order-item="delOrder"
-  ></DelOrderModal>
+    @del-order-item="delOrder" />
 </template>
 
 <script>
@@ -100,11 +98,6 @@ export default {
   },
   inject: ['emitter'],
   methods: {
-    // 時間戳
-    date (time) {
-      const date = new Date(time * 1000)
-      return date.toLocaleDateString()
-    },
     getOrders (page = 1) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/orders?page=${page}`
       this.isLoading = true
@@ -125,7 +118,6 @@ export default {
       this.$http
         .delete(url)
         .then((res) => {
-          console.log(res)
           this.$emit('get-orders')
           this.$refs.delOrderModal.hideModal()
           this.getOrders()

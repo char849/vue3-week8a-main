@@ -62,13 +62,13 @@
             </span>
             <h1 class="h2 mt-2">{{ product.title }}</h1>
             <div class="h5" v-if="product.price === product.origin_price">
-              {{ product.price }} 元
+              {{ $filters.currency(product.price) }} 元
             </div>
             <div v-else>
               <del class="h6 text-danger"
-                >原價 {{ product.origin_price }} 元</del
+                >原價 {{ $filters.currency(product.origin_price) }} 元</del
               >
-              <p class="h4 mb-3 text-info">NT {{ product.price }} 元</p>
+              <p class="h4 mb-3 text-info">NT {{ $filters.currency(product.price) }} 元</p>
             </div>
             <p class="h5 text-dark py-2">
               {{ product.content }}
