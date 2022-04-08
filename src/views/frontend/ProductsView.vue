@@ -26,7 +26,8 @@
             </router-link>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            {{ list.currentCategory === "all" ? "全部" : list.currentCategory }}
+            <span v-if="selectCategory == ''">全部產品</span>
+            <span v-else>{{ selectCategory }}</span>
           </li>
         </ol>
       </nav>
@@ -34,21 +35,21 @@
         <div class="list-group sticky-top mb-3">
           <a
             href="#"
-            :class="{ active: list.currentCategory === 'all' }"
+            :class="{ active: selectCategory === '' }"
             class="list-group-item list-group-item-action"
             aria-current="true"
-            @click.prevent="categoryHandler('all')"
+            @click.prevent="selectCategory = ''"
           >
-            全部
+            全部產品
           </a>
           <a
-            v-for="item in list.ary"
+            v-for="item in categories"
             :key="item"
             href="#"
-            :class="{ active: list.currentCategory === item }"
+            :class="{ active: item === selectCategory }"
             class="list-group-item list-group-item-action"
             aria-current="true"
-            @click.prevent="categoryHandler(item)"
+            @click.prevent="selectCategory = item"
           >
             {{ item }}
           </a>
@@ -136,11 +137,8 @@ export default {
   inject: ['emitter'],
   data () {
     return {
-      list: {
-        currentCategory: 'all',
-        ary: [],
-        changeCategory: false
-      },
+      categories: [], // 分類項目用
+      selectCategory: '', // 點選分類的商品
       products: [],
       favoriteList: [],
       isLoadingItem: '', // 局部讀取效果的變數
@@ -150,11 +148,8 @@ export default {
 
   computed: {
     filterProducts () {
-      return this.products?.filter(
-        (product) =>
-          this.list.currentCategory === 'all' ||
-          product.category === this.list.currentCategory
-      )
+      // retuen : 當選擇的選項和產品相同時會回傳回來。
+      return this.products.filter((item) => item.category.match(this.selectCategory))
     }
   },
   methods: {
@@ -170,6 +165,8 @@ export default {
             const { products } = res.data
             this.products = products
             this.getCategory()
+            const { categoryName } = this.$route.params
+            if (categoryName) { this.selectCategory = categoryName }
           } else {
             this.$swal(res.data.message, '', 'error')
           }
@@ -236,13 +233,7 @@ export default {
     },
     getCategory () {
       const categorys = this.products?.map((product) => product.category)
-      this.list.ary = [...new Set(categorys)]
-    },
-    categoryHandler (type) {
-      this.list.currentCategory = type
-      this.products.filter(
-        (product) => type === 'all' || product.category === type
-      )
+      this.categories = [...new Set(categorys)]
     }
   },
   created () {

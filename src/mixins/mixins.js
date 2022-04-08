@@ -5,9 +5,13 @@ export default {
     toggleNavHam () {
       this.collapse.toggle()
     },
+    openNavHam () {
+      this.collapse.show()
+    },
     closeNavHam () {
       this.collapse.hide()
     }
+
   },
   mounted () {
     this.collapse = new Collapse(this.$refs.collapse, {

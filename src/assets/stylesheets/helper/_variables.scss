@@ -67,7 +67,7 @@ $colors: (
 // scss-docs-end colors-map
 
 // scss-docs-start theme-color-variables
-$primary:       rgb(255, 255, 255, 0.5);//$blue !default;
+$primary:       $blue !default;
 $secondary:     #f82888;//$gray-600 !default;
 $success:       #020202;// $green !default;
 $info:          #966346;//$cyan !default;

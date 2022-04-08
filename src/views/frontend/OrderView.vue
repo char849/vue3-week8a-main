@@ -13,7 +13,7 @@
     <h2
       class="position-absolute text-hv-center top-50 start-50 h2 fw-bold text-white-50 pageBanner-text"
     >
-      Order
+      Order List
     </h2>
   </header>
   <div class="container px-3 mb-5">
@@ -30,8 +30,6 @@
       </nav>
 
       <div class="mt-2">
-        <!-- <h5 class="mb-1">訂單已建立完成</h5>
-        <p class="text-info">訂單編號: {{ order.id }}</p> -->
         <div class="row">
           <template v-if="order.is_paid">
             <ul class="row justify-content-center list-unstyled py-3 px-3">
@@ -58,9 +56,36 @@
               </li>
             </ul>
             <div class="col-md-6">
-              <h3>用戶資料</h3>
-              <table class="table">
-                <tbody v-if="order.user">
+              <h3>訂購清單</h3>
+              <table class="table product-area">
+                <tbody>
+                  <tr v-for="item in order.products" :key="item" class="align-middle">
+                <td class="border-0">
+                  <img
+                    :src="item.product.imageUrl"
+                    :alt="item.product.title"
+                    style="width:100px;"
+                  />
+                </td>
+                <td class="border-0">
+                  <p class="mb-2 mb-md-0">{{ item.product.title }}</p>
+                  <p class="h6 text-secondary">
+                    價錢 : NT ${{ $filters.currency(item.product.price) }}
+                  </p>
+                </td>
+                <td class="border-0">
+                  <p class="h6">x {{ item.qty }}</p>
+                </td>
+              </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-6">
+              <h3>收件資訊</h3>
+              <table class="table border product-area">
+                <tbody>
+                  <tr><td colspan="2" class="text-info fw-bold"><i class="bi bi-bell-fill"></i> 感謝您的購買，今日下單，如有現貨，工作日 16:00 前訂單，當日出貨
+</td></tr>
                   <tr>
                     <th style="width: 100px">姓名</th>
                     <td>{{ order.user.name }}</td>
@@ -77,13 +102,6 @@
                     <th>地址</th>
                     <td>{{ order?.user.address }}</td>
                   </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="col-md-6">
-              <h3>訂單細節</h3>
-              <table class="table">
-                <tbody>
                   <tr>
                     <th style="width: 100px">訂單編號</th>
                     <td>{{ order.id }}</td>
@@ -115,7 +133,7 @@
                   <tr>
                     <th>總金額</th>
                     <td>
-                      {{ order.total }}
+                      {{ $filters.currency(order.total) }}
                     </td>
                   </tr>
                   <tr>
@@ -160,9 +178,31 @@
               </li>
             </ul>
             <div class="col-md-6">
-              <h3>用戶資料</h3>
-              <table class="table">
-                <tbody v-if="order.user">
+              <h3>訂單清單</h3>
+              <table class="table product-area">
+                <tbody>
+                   <tr v-for="item in order.products" :key="item" class="align-middle">
+              <td>
+                <img :src="item.product.imageUrl" :alt="item.product.title" style="width:100px;" />
+              </td>
+              <td>
+                <p class="mb-2 mb-md-0">{{ item.product.title }}</p>
+                <p class="h6">數量 : {{ item.qty }}</p>
+                <p class="d-table-cell d-lg-none">
+                  NT ${{ $filters.currency(item.product.price * item.qty) }}
+                </p>
+              </td>
+              <td class="text-center d-none d-lg-table-cell">
+                NT ${{ $filters.currency(item.product.price * item.qty) }}
+              </td>
+            </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-6">
+              <h3>收件資訊</h3>
+              <table class="table border product-area">
+                <tbody>
                   <tr>
                     <th style="width: 100px">姓名</th>
                     <td>{{ order.user.name }}</td>
@@ -179,13 +219,6 @@
                     <th>地址</th>
                     <td>{{ order.user.address }}</td>
                   </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="col-md-6">
-              <h3>訂單細節</h3>
-              <table class="table">
-                <tbody>
                   <tr>
                     <th style="width: 100px">訂單編號</th>
                     <td>{{ order.id }}</td>
@@ -194,24 +227,13 @@
                     <th>下單時間</th>
                     <td>{{ $filters.date(order.create_at) }}</td>
                   </tr>
-
-                  <tr>
-                    <th>付款時間</th>
-                    <td>
-                      <span v-if="order.paid_date">
-                        {{ $filters.date(order.paid_date) }}
-                      </span>
-
-                      <span v-else>時間不正確</span>
-                    </td>
-                  </tr>
                   <tr>
                     <th>付款狀態</th>
                     <td>
                       <strong v-if="order.is_paid" class="text-success"
                         >已付款</strong
                       >
-                      <span v-else class="text-muted">尚未付款</span>
+                      <span v-else class="text-danger">尚未付款</span>
                     </td>
                   </tr>
                   <tr>
@@ -242,7 +264,7 @@
     </div>
   </div>
   <NoticeView />
-  <Loading :active="isLoading"/>
+  <Loading :active="isLoading" />
 </template>
 
 <script>
@@ -275,7 +297,7 @@ export default {
             const { order } = res.data
             this.order = order
           } else {
-            this.$swal(res.data.message, '', '"error')
+            this.$swal(res.data.message, '', 'error')
           }
         })
         .catch((error) => {

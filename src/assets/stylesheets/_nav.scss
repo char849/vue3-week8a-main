@@ -65,14 +65,24 @@
 }
 .navbar-collapse {
   @media (max-width: 767px) {
-    margin-top: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 20px;     
   }
 }
 
 .navbar-toggler,
 .navbar-toggler:focus {
   @media (max-width: 767px) {
-    box-shadow: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important; 
   }
 }
+
+.dropdown-menu {
+  border: transparent !important;
+}
+
+.dropdown-item.active, .dropdown-item {
+  &:active {
+    background-color: $secondary !important;
+  } 
+}
+  

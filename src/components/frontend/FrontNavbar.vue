@@ -1,8 +1,12 @@
 <template>
   <nav
     class="navbar navbar-expand-lg fixed-top d-block py-2"
-    :class="{ 'shadow-sm': scroll, 'bg-primary': scroll }"
-  >
+    :class="[
+      isActive
+        ? [navClassList.nav, navClassList.text, navClassList.bg, navClassList.navbarShadow ]
+        : 'navbar-dark',
+    ]"
+    >
     <div class="container">
       <h1 class="logo navbar-brand mb-0">
         <router-link class="d-flex me-2 text-decoration-none" to="/">
@@ -38,7 +42,7 @@
         >
       </router-link>
 
-      <button class="navbar-toggler" type="button" @click="toggleNavHam">
+      <button class="navbar-toggler" type="button" @click="mobileBtn">
         <i
           class="bi bi-justify-right fs-1"
           :class="[navClassList.nav, navClassList.text]"
@@ -55,15 +59,24 @@
               >關於漢文帝</router-link
             >
           </li>
-          <li class="nav-item">
-            <router-link
-              class="nav-link"
-              to="/products"
-              @click="closeNavHam"
-              :class="[navClassList.nav, navClassList.text]"
-              >手作模型</router-link
-            >
-          </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" :class="[navClassList.nav, navClassList.text]" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            手作模型
+          </a>
+          <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown" @click="closeNavHam">
+            <li><router-link class="dropdown-item" to="/products">全部</router-link></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" @click.prevent="toCategory('熱門')">熱門</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" @click.prevent="toCategory('甲殼類')">甲殼類</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" @click.prevent="toCategory('動物科')">動物科</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" @click.prevent="toCategory('昆蟲類')">昆蟲類</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" @click.prevent="toCategory('特殊類')">特殊類</a></li>
+          </ul>
+        </li>
           <li class="nav-item">
             <router-link
               class="nav-link"
@@ -118,10 +131,11 @@ export default {
   mixins: [mixins],
   data () {
     return {
-      scroll: '',
+      isActive: false,
       navClassList: {
         nav: 'navbar-dark',
         text: 'text-light',
+        navbarShadow: '',
         src: 'https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1647191678439.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=B0LplI80HOeontFEvfNoc9%2BU5hkaT%2B5UrdC5SWznp%2FRDUpOtQIw1EUuYgsI0Zor9j9%2BMMlqpbEEciXrhy%2FfNT5cop71NKZCjtHNJX3YPYRlGRctIyBB7b3tZ2vVBMbhgDi9l5Azwg8sMX%2BI3EuTb%2BR0qFFwyNBzBpuGPGazvFmWMr0OpCy6yoCZlJettNvgTheUAJ8zYrSCct%2F08StB2q0%2F57WiylkU53IDebLkuudtumAJlKsdu4b5YLrirR3BhVWiDc3vUtxlF9DBzqh55HRvBTkXkyf3yVcoRTiqSA9fGPGZbUGhjXpRHpMr6iN4d0RBbuPlgIjOe2hVWBMee5Q%3D%3D'
       },
       cartData: {
@@ -133,6 +147,26 @@ export default {
     }
   },
   methods: {
+    mobileBtn () {
+      this.toggleNavHam()
+      if (this.openNavHam) {
+        this.isActive = true
+        this.navClassList = {
+          nav: 'navbar-light',
+          text: 'text-success',
+          navbarShadow: 'shadow-sm',
+          bg: 'bg-white',
+          src: 'https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1647191590300.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=TBm7MtVRJypq3N2k5e7SAQbBNCYt%2BaLl9%2FC%2BIs%2FL3MVfhGHDvoC1A2vqzMuKaYp6bEkeVm5l4OpZtbIsoFa94hR0yt31xGSGmPy1ORr1LUPjF9bMVFngdXP32WMX19pkYKQxzHJOusWUh21ab%2BPqkPXiTNZrt3mtpnlEgAfpyzdC%2BWIt9k1PE6v%2B3xuv2qwbHNTb8AgTn9btLbUcsCmdumhZOoISUnLayyqxpZKg0nvZFIQ5wfxxbNgm29gzPCUTNCI8gXFheqWBGznoE4RcAfHYZEUcil6TRNO9XKzTJxiBRG02pZP2BLh1XR%2BFH9jHsaqa2aysASiEnk8qsc22Nw%3D%3D'
+        }
+      }
+    },
+    // 點選商品分類跳到對應的商品分類
+    toCategory (Name) {
+      this.$router.push({
+        name: '產品列表',
+        params: { categoryName: Name }
+      })
+    },
     // 取得購物車內容
     getCart () {
       this.$http
@@ -157,19 +191,22 @@ export default {
     })
     this.getFavorite()
     window.addEventListener('scroll', () => {
-      this.scroll = document.documentElement.scrollTop > 0
       const windowY = window.scrollY
       if (windowY > 10) {
+        this.isActive = true
         this.navClassList = {
-          nav: 'navbar-dark',
+          nav: 'navbar-light',
           text: 'text-success',
+          navbarShadow: 'shadow-sm',
           bg: 'bg-white',
           src: 'https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1647191590300.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=TBm7MtVRJypq3N2k5e7SAQbBNCYt%2BaLl9%2FC%2BIs%2FL3MVfhGHDvoC1A2vqzMuKaYp6bEkeVm5l4OpZtbIsoFa94hR0yt31xGSGmPy1ORr1LUPjF9bMVFngdXP32WMX19pkYKQxzHJOusWUh21ab%2BPqkPXiTNZrt3mtpnlEgAfpyzdC%2BWIt9k1PE6v%2B3xuv2qwbHNTb8AgTn9btLbUcsCmdumhZOoISUnLayyqxpZKg0nvZFIQ5wfxxbNgm29gzPCUTNCI8gXFheqWBGznoE4RcAfHYZEUcil6TRNO9XKzTJxiBRG02pZP2BLh1XR%2BFH9jHsaqa2aysASiEnk8qsc22Nw%3D%3D'
         }
       } else {
+        this.isActive = false
         this.navClassList = {
-          nav: 'navbar-light',
+          nav: 'navbar-dark',
           text: 'text-light',
+          bg: '',
           src: 'https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1647191678439.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=B0LplI80HOeontFEvfNoc9%2BU5hkaT%2B5UrdC5SWznp%2FRDUpOtQIw1EUuYgsI0Zor9j9%2BMMlqpbEEciXrhy%2FfNT5cop71NKZCjtHNJX3YPYRlGRctIyBB7b3tZ2vVBMbhgDi9l5Azwg8sMX%2BI3EuTb%2BR0qFFwyNBzBpuGPGazvFmWMr0OpCy6yoCZlJettNvgTheUAJ8zYrSCct%2F08StB2q0%2F57WiylkU53IDebLkuudtumAJlKsdu4b5YLrirR3BhVWiDc3vUtxlF9DBzqh55HRvBTkXkyf3yVcoRTiqSA9fGPGZbUGhjXpRHpMr6iN4d0RBbuPlgIjOe2hVWBMee5Q%3D%3D'
         }
       }
@@ -179,18 +216,20 @@ export default {
     this.emitter.off('get-cart')
     this.emitter.off('get-favorite')
     window.removeEventListener('scroll', () => {
-      this.scroll = document.documentElement.scrollTop > 0
       const windowY = window.scrollY
       if (windowY > 10) {
+        this.isActive = true
         this.navClassList = {
-          nav: 'navbar-dark',
+          nav: 'navbar-light',
           text: 'text-success',
+          navbarShadow: 'shadow-sm',
           bg: 'bg-white',
           src: 'https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1647191590300.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=TBm7MtVRJypq3N2k5e7SAQbBNCYt%2BaLl9%2FC%2BIs%2FL3MVfhGHDvoC1A2vqzMuKaYp6bEkeVm5l4OpZtbIsoFa94hR0yt31xGSGmPy1ORr1LUPjF9bMVFngdXP32WMX19pkYKQxzHJOusWUh21ab%2BPqkPXiTNZrt3mtpnlEgAfpyzdC%2BWIt9k1PE6v%2B3xuv2qwbHNTb8AgTn9btLbUcsCmdumhZOoISUnLayyqxpZKg0nvZFIQ5wfxxbNgm29gzPCUTNCI8gXFheqWBGznoE4RcAfHYZEUcil6TRNO9XKzTJxiBRG02pZP2BLh1XR%2BFH9jHsaqa2aysASiEnk8qsc22Nw%3D%3D'
         }
       } else {
+        this.isActive = false
         this.navClassList = {
-          nav: 'navbar-light',
+          nav: 'navbar-dark',
           text: 'text-light',
           src: 'https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1647191678439.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=B0LplI80HOeontFEvfNoc9%2BU5hkaT%2B5UrdC5SWznp%2FRDUpOtQIw1EUuYgsI0Zor9j9%2BMMlqpbEEciXrhy%2FfNT5cop71NKZCjtHNJX3YPYRlGRctIyBB7b3tZ2vVBMbhgDi9l5Azwg8sMX%2BI3EuTb%2BR0qFFwyNBzBpuGPGazvFmWMr0OpCy6yoCZlJettNvgTheUAJ8zYrSCct%2F08StB2q0%2F57WiylkU53IDebLkuudtumAJlKsdu4b5YLrirR3BhVWiDc3vUtxlF9DBzqh55HRvBTkXkyf3yVcoRTiqSA9fGPGZbUGhjXpRHpMr6iN4d0RBbuPlgIjOe2hVWBMee5Q%3D%3D'
         }

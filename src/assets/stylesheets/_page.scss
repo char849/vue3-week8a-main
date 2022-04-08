@@ -80,7 +80,9 @@
 }
 .list-group-item.active {
   background-color: $secondary !important;
+  border-color: transparent !important;
 }
+
 
 // CartView.vue
 .form-select,

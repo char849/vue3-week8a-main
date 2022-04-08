@@ -181,6 +181,7 @@ export default {
           // 加入購物車後，再重新取得購物車內容
           // 取完後，清空id
           this.isLoadingItem = ''
+          this.$swal(res.data.message)
           this.emitter.emit('get-cart')
         })
     },
