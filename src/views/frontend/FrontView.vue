@@ -8,7 +8,7 @@
       v-if="isGoTopBtnShow"
       @click="goTop"
     >
-      <i class="bi bi-arrow-up-short fs-2"></i>
+      <i class="bi bi-arrow-up-short fs-2 fw-bold"></i>
     </button>
 </template>
 
