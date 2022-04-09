@@ -1,5 +1,5 @@
 <template>
-  <div class="text-dark my-5 py-md-9">
+  <div class="text-dark py-5 py-md-9">
     <div class="container px-6 px-md-9">
       <ul class="row list-unstyled gx-md-9">
         <li class="col-md-4 border-end-md mb-5 mb-md-0 py-2">

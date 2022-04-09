@@ -169,8 +169,36 @@
   }
 }  
 
+// go-top
+.go-top, .rounded-circle {
+  bottom: 25px;
+  right: 25px;
+  z-index: 1049;
+  width: 50px;
+  height: 50px;   
+  transition: .1s; 
+  border-color: $secondary;
+  &:hover i{
+    animation: goTop 1s linear infinite;
+  } 
+}
 
+@keyframes goTop {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  85% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
   
+}
+
 
 
 
