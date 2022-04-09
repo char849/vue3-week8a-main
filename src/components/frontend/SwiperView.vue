@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid product-area text-center pt-5 mt-6">
+  <div class="container-fluid product-area text-center pt-5 mt-6 pb-5">
     <div class="container">
       <p class="h6 text-info fw-bold" data-aos="fade-up">
         純手工彩繪上色 <span class="material-icons"> palette </span>

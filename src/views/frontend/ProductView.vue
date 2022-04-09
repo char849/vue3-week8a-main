@@ -1,14 +1,14 @@
 <template>
   <header class="position-relative mb-7 mb-md-9">
     <img
-      class="bg-mask-60 d-lg-none d-block img-cover pageBanner w-100"
+      class="d-lg-none d-block img-cover pageBanner w-100"
       src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1649056515409.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Y3oVi0SPMebWOgvPqS5RHodE7xqByaugrJ0bU5Nh39%2FkgP61e0eITVD7AtElaYEW3y%2BnA%2FUZW3tYJHol9aYQ4CruEBRBMTedaUR%2F4sE44GRGEjRh7LifWCFKxD%2BY4hsD68zenE0s1Cb2WS%2BuBUuxrpx5ac2hsMgZypGfR%2FaCyF8Fh0jtifudelvL03JhoGOjSSdmzzeFJUk4eESF7ubqvjc5YFjSh6o2TVTUgIM10VrDxPVgVCTPgfQ%2B4PNaW86AAXGsrDothzw%2F5W6wsthdwEFzxe0obRdU%2F2mrEwSMCCAnA1qq9MihLktcPDbkYDKQQgNcpGIzq3s5257lU2CD5w%3D%3D"
-      alt="關於漢文帝banner"
+      alt="關於漢文帝banner-phone"
     />
     <img
-      class="bg-mask-60 img-cover d-lg-block d-none pageBanner w-100"
-      src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1649056577180.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=ogse6tS%2Bis99uDCUOfD39hKI1mklPXiasbEPqueX8U6PoGkaKr4DmOMDJ6vGVRojlIqg7j7PufZSDp7RAagCBxuhnAv4J0IzC4bIT1rZ4zbPfhD9kVT2jXd0EHrnH7qxO5%2FNiUNuvJaq6Whou7FwID028oBJAYElYnbFimnyii1HhXPajHArl0K6gjLE2prj9Vsdb2JQAbVolOJReVlQAHKSc9o%2BjTYI6iRiDMrIqrj6o8EBqRfLKw%2FOEIMmmjPSvc9TC3eLtiNcDNDy0Trai1DJVbZLmXBkiwWfb1UT%2F9HUbevYZbZ8x4YVA2Yd8slyrLHhjkd%2Fi4w%2FI%2BQSjoYLcw%3D%3D"
-      alt="關於漢文帝banner"
+      class="img-cover d-lg-block d-none pageBanner w-100"
+      src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1649486937361.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=MV0ltytTHZJ%2FFGIlFNovcNBNkRHce3FdIgO0roi8w9RCkOEQXMGCOhAZ1RH%2B%2BlNeVaY0pVC5sCuLzCA%2FWAc0oEBvoiak1KxmsDkcwyMFkV4gsU%2FjHvfhk5KtGoUS7o%2BorWxIxsTrq4N53c5a6Qo1KHZ4xg%2BFRCISmaPyxX2falP3q56WIHTegBTTWE1jUcLEfoy608VibZKxE2CwTPiDQ9i2OoagdVKlb%2FRoWC7g5BLlreMW0AtGjmGffQHpW2OhvTpyAYW1BUrZww%2BVrRHr5n9JOm5VF6yEc78HSOxuZ1bc%2B809o9U2YkU9pRYCCORuMMMsBV3dnrEtxoj0V2yaTw%3D%3D"
+      alt="關於漢文帝banner-pc"
     />
     <h2
       class="position-absolute text-hv-center top-50 start-50 h2 fw-bold text-white-50 pageBanner-text"
@@ -97,14 +97,19 @@
       </div>
     </div>
   </div>
+  <ProductSwiperView data-aos="fade-up" />
   <Loading :active="isLoading"/>
 </template>
 
 <script>
+import ProductSwiperView from '@/components/frontend/ProductSwiperView.vue'
 
 export default {
   name: '單一產品',
   inject: ['emitter'],
+  components: {
+    ProductSwiperView
+  },
   data () {
     return {
       products: [],
@@ -143,7 +148,6 @@ export default {
       this.imgUrl = item
     },
     getProducts () {
-      // 參數預設值
       this.isLoading = true
       this.$http
         .get(
@@ -156,6 +160,7 @@ export default {
         })
     },
     getProduct (id) {
+      this.isLoading = true
       this.$http
         .get(
           `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`
@@ -166,6 +171,7 @@ export default {
           this.category = res.data.product.category
           this.imgUrl = res.data.product.imageUrl
           this.imagesUrl = res.data.product.imagesUrl
+          this.isLoading = false
         })
     },
     // 取得購物車內容

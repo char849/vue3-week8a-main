@@ -1,68 +1,25 @@
 <template>
-  <header class="position-relative mb-7 mb-md-9">
-    <img
-      class="d-lg-none d-block img-cover pageBanner w-100"
-      src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1649056515409.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Y3oVi0SPMebWOgvPqS5RHodE7xqByaugrJ0bU5Nh39%2FkgP61e0eITVD7AtElaYEW3y%2BnA%2FUZW3tYJHol9aYQ4CruEBRBMTedaUR%2F4sE44GRGEjRh7LifWCFKxD%2BY4hsD68zenE0s1Cb2WS%2BuBUuxrpx5ac2hsMgZypGfR%2FaCyF8Fh0jtifudelvL03JhoGOjSSdmzzeFJUk4eESF7ubqvjc5YFjSh6o2TVTUgIM10VrDxPVgVCTPgfQ%2B4PNaW86AAXGsrDothzw%2F5W6wsthdwEFzxe0obRdU%2F2mrEwSMCCAnA1qq9MihLktcPDbkYDKQQgNcpGIzq3s5257lU2CD5w%3D%3D"
-      alt="關於漢文帝banner"
-    />
-    <img
-      class="img-cover d-lg-block d-none pageBanner w-100"
-      src="https://storage.googleapis.com/vue-course-api.appspot.com/charlotte-hexschool/1649486937361.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=MV0ltytTHZJ%2FFGIlFNovcNBNkRHce3FdIgO0roi8w9RCkOEQXMGCOhAZ1RH%2B%2BlNeVaY0pVC5sCuLzCA%2FWAc0oEBvoiak1KxmsDkcwyMFkV4gsU%2FjHvfhk5KtGoUS7o%2BorWxIxsTrq4N53c5a6Qo1KHZ4xg%2BFRCISmaPyxX2falP3q56WIHTegBTTWE1jUcLEfoy608VibZKxE2CwTPiDQ9i2OoagdVKlb%2FRoWC7g5BLlreMW0AtGjmGffQHpW2OhvTpyAYW1BUrZww%2BVrRHr5n9JOm5VF6yEc78HSOxuZ1bc%2B809o9U2YkU9pRYCCORuMMMsBV3dnrEtxoj0V2yaTw%3D%3D"
-      alt="關於漢文帝banner-pc"
-    />
-    <h2
-      class="position-absolute text-hv-center top-50 start-50 h2 fw-bold text-white-50 pageBanner-text"
-    >
-      Products List
-    </h2>
-  </header>
-  <div class="container px-3 mb-5">
-    <div class="row g-3 mt-4">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <router-link to="/" class="nav-link text-dark active p-0">
-              首頁
-            </router-link>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            <span v-if="selectCategory == ''">全部產品</span>
-            <span v-else>{{ selectCategory }}</span>
-          </li>
-        </ol>
-      </nav>
-      <div class="col-md-2">
-        <div class="list-group sticky-top mb-3" style="top:80px;">
-          <a
-            href="#"
-            :class="{ active: selectCategory === '' }"
-            class="list-group-item list-group-item-action"
-            aria-current="true"
-            @click.prevent="selectCategory = ''"
-          >
-            全部產品
-          </a>
-          <a
-            v-for="item in categories"
-            :key="item"
-            href="#"
-            :class="{ active: item === selectCategory }"
-            class="list-group-item list-group-item-action"
-            aria-current="true"
-            @click.prevent="selectCategory = item"
-          >
-            {{ item }}
-          </a>
-        </div>
-      </div>
-      <div class="col-md-10">
-        <div class="row g-2">
-          <div
+  <div class="container-fluid product-area text-center pt-5 mt-6 pb-5">
+    <div class="container">
+      <p class="h6 text-info fw-bold" data-aos="fade-up">
+        順便帶走吧!! <span class="material-icons-outlined">
+add_shopping_cart
+</span>
+      </p>
+      <p class="h1 text-dark mb-5" data-aos="fade-up">你可能會有興趣的產品</p>
+      <template v-if="filterProducts.length > 0">
+        <swiper
+          :breakpoints="breakpoints"
+          :loop="true"
+          navigation
+          :autoplay="autoplay"
+        >
+          <swiper-slide
             class="col-12 col-md-4 mb-4"
             v-for="item in filterProducts"
             :key="item.id"
           >
-            <div class="card h-100">
+            <div class="card h-100" role="button">
               <!-- Favorite icon -->
               <div class="card_Favorite" @click="setFavorite(item.id)">
                 <span v-if="favoriteList.includes(item.id)"
@@ -82,7 +39,6 @@
                   :style="`background-image: url(${item.imageUrl})`"
                 ></div>
               </div>
-
               <div class="card-body">
                 <div class="d-flex justify-content-between">
                   <h5 class="card-title">
@@ -111,10 +67,9 @@
                 </div>
                 <div class="card-footer border-0 bg-white my-2">
                   <button
-                    id="btn02"
                     type="button"
+                    id="btn02"
                     class="btn btn-outline-secondary w-100"
-                    :disabled="isLoadingItem === item.id"
                     @click="addCart(item.id)"
                   >
                     <i class="bi bi-cart-plus-fill h4"></i>
@@ -123,36 +78,63 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </swiper-slide>
+        </swiper>
+      </template>
     </div>
   </div>
   <Loading :active="isLoading" />
 </template>
 
 <script>
-
 export default {
-  name: '產品列表',
   inject: ['emitter'],
   data () {
     return {
-      categories: [], // 分類項目用
-      selectCategory: '', // 點選分類的商品
       products: [],
       favoriteList: [],
-      isLoadingItem: '', // 局部讀取效果的變數
-      isLoading: false
+      isLoading: false,
+      // 轉成json後，初始化將資料給讀出來，給一個預設值
+      // favorite: JSON.parse(localStorage.getItem("favorite")) || [],
+      swiper: null,
+      // modules: [Navigation, Pagination],
+      breakpoints: {
+        767: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        }
+      },
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      }
+    }
+  },
+  props: {
+    category: {
+      type: String,
+      default () {
+        return ''
+      }
+    }
+  },
+  computed: {
+    filterProducts () {
+      return this.products.filter(
+        (item) => this.category === '' || (item.category === this.category && item.id !== this.product.id)
+      )
     }
   },
 
-  computed: {
-    filterProducts () {
-      // retuen : 當選擇的選項和產品相同時會回傳回來。
-      return this.products.filter((item) => item.category.match(this.selectCategory))
-    }
-  },
   methods: {
     getProducts () {
       // 參數預設值
@@ -162,18 +144,12 @@ export default {
           `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all` // query 用? 去帶
         )
         .then((res) => {
+          // 把產品列表存起來，準備呈現在畫面
+          this.products = res.data.products
           this.isLoading = false
-          if (res.data.success) {
-            const { products } = res.data
-            this.products = products
-            this.getCategory()
-            const { categoryName } = this.$route.params
-            if (categoryName) { this.selectCategory = categoryName }
-          } else {
-            this.$swal(res.data.message, '', 'error')
-          }
         })
     },
+    // 在元件內取得遠端資料
     getProduct (id) {
       this.$http
         .get(
@@ -199,19 +175,23 @@ export default {
           { data }
         ) // 將資料格式帶入
         .then((res) => {
-          this.isLoading = false
           // 加入購物車後，再重新取得購物車內容
+          // this.getCart();
           // 讀取完後，清空id
+          this.isLoading = false
           this.isLoadingItem = ''
           this.$swal(res.data.message)
+          // get-cart
           this.emitter.emit('get-cart')
         })
     },
+    // 取得我的最愛
     getFavorite () {
       const favoriteList = localStorage.getItem('homeFavorite') || []
       this.favoriteList = JSON.parse(favoriteList)
       this.emitter.emit('get-favorite')
     },
+    // 存入我的最愛
     setFavorite (id) {
       // 查資料裡面，有沒有這個ID
       if (this.favoriteList.includes(id)) {
@@ -232,13 +212,22 @@ export default {
       localStorage.setItem('homeFavorite', '')
       localStorage.setItem('homeFavorite', favoriteStr)
       this.getFavorite()
-    },
-    getCategory () {
-      const categorys = this.products?.map((product) => product.category)
-      this.categories = [...new Set(categorys)]
     }
   },
-  created () {
+
+  watch: {
+    favorite: {
+      handle () {
+        // localStorage 自訂欄位，不能存json 必需轉字串
+        // 當資料有變動就做寫入，沒有的話就什麼都不做
+        localStorage.setItem('favoriteList', JSON.stringify(this.favoriteList))
+      },
+      deep: true
+    }
+  },
+  // 初使化
+  mounted () {
+    // 把getProducts產品列表運作起來
     this.getProducts()
   }
 }
