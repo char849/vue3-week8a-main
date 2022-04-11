@@ -44,7 +44,7 @@
               :key="index"
               @click.prevent="subImg(item, index)"
             >
-              <img class="picture pe-1 pb-2" :src="item" alt="產品圖片" />
+              <img class="picture pe-1 pb-2 bg-cover" :src="item" alt="產品圖片" />
             </a>
           </div>
 
