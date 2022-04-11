@@ -3,7 +3,7 @@
     class="navbar navbar-expand-lg fixed-top navbar-light text-success fw-bold bg-white"
   >
     <div class="container-fluid">
-      <router-link class="navbar-brand" to="/admin">後台首頁</router-link>
+      <router-link class="navbar-brand" to="/admin/products">後台首頁</router-link>
       <button class="navbar-toggler" type="button" @click="toggleNavHam">
         <span class="navbar-toggler-icon"></span>
       </button>

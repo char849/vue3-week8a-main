@@ -128,7 +128,7 @@
       </div>
     </div>
   </div>
-  <Loading :active="isLoading" />
+  <CustomLoading :active="isLoading" />
 </template>
 
 <script>

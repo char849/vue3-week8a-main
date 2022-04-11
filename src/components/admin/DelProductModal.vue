@@ -40,6 +40,7 @@
       </div>
     </div>
   </div>
+  <CustomLoading :active="isLoading" />
 </template>
 
 <script>
@@ -47,6 +48,11 @@ import Modal from 'bootstrap/js/dist/modal'
 
 export default {
   props: ['tempProduct'],
+  data () {
+    return {
+      isLoading: false
+    }
+  },
   methods: {
     // 刪除一個產品
     delProduct () {

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Loading :active="isLoading" :z-index="1060" />
+    <CustomLoading :active="isLoading" :z-index="1060" />
     <h2>後台登入頁面</h2>
     <div class="row justify-content-center">
       <div class="col-12 col-md-4">
@@ -36,7 +36,7 @@
     <p class="mt-5 mb-3 text-muted">
       &copy; {{ new Date().getFullYear() }} - Charlotte Lee<br />
       本網站僅供個人作品使用，不提供商業用途
-      <router-link class="nav-link" to="/">返回前台首頁</router-link>
+      <router-link class="nav-link text-muted" to="/">返回前台首頁</router-link>
     </p>
   </div>
 </template>
@@ -69,7 +69,6 @@ export default {
           // 轉址到後台使用 push() 方法
           // 陣列的概念 ['/','login','admin/products']
           this.$router.push('/admin/products')
-          this.$swal(res.data.message, '', 'success')
         })
         // 失敗結果
         .catch((err) => {

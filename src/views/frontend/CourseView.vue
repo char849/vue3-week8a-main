@@ -243,7 +243,7 @@
                     >
                     <a
                       href="#"
-                      class="h5 mb-0 text-dark stretched-link text-decoration-none"
+                      class="h5 mb-0 text-dark stretched-link text-start text-decoration-none"
                       @click.prevent="article.isOpen = !article.isOpen"
                       >{{ article.title }}
                     </a>
@@ -259,7 +259,7 @@
                     class="transition card-body border-top"
                   >
                     <p
-                      class="mb-0 text-warning text-md-start text-center ps-md-5"
+                      class="mb-0 text-warning text-start ps-md-5"
                     >
                       {{ article.description }}
                     </p>
@@ -272,7 +272,7 @@
       </div>
     </div>
   </div>
-  <Loading :active="isLoading"/>
+  <CustomLoading :active="isLoading" />
 </template>
 
 <script>
@@ -282,7 +282,8 @@ export default {
     return {
       articles: [],
       content: '',
-      isOpen: true
+      isOpen: true,
+      isLoading: false
     }
   },
   methods: {

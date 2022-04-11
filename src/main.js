@@ -35,7 +35,7 @@ import App from './App.vue'
 import router from './router'
 // 引入“千分號”程式碼
 import { currency, date } from './methods/filters.js'
-
+import CustomLoading from './components/frontend/LoadingView.vue'
 // 定義驗證規則
 Object.keys(AllRules).forEach((rule) => {
   defineRule(rule, AllRules[rule])
@@ -62,6 +62,7 @@ SwiperCore.use([Navigation, Autoplay, Pagination])
 app.use(router)
 app.use(VueAxios, axios)
 app.component('Loading', Loading)
+app.component('CustomLoading', CustomLoading)
 
 // 註冊 Swiperjs 兩個全域元件
 app.component('Swiper', Swiper)

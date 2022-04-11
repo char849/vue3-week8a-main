@@ -1,5 +1,6 @@
 <template>
-  <Loading :active="isLoading"></Loading>
+<div class="container">
+  <CustomLoading :active="isLoading" />
   <table class="table mt-6">
     <thead>
       <tr>
@@ -74,6 +75,7 @@
     :item="tempOrder"
     ref="delOrderModal"
     @del-order-item="delOrder" />
+    </div>
 </template>
 
 <script>

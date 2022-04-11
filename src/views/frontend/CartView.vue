@@ -272,7 +272,7 @@
     </div>
   </div>
   <NoticeView />
-  <Loading :active="isLoading" />
+  <CustomLoading :active="isLoading" />
 </template>
 
 <script>

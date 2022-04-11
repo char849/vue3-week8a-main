@@ -98,7 +98,7 @@
     </div>
   </div>
   <ProductSwiperView data-aos="fade-up" />
-  <Loading :active="isLoading"/>
+  <CustomLoading :active="isLoading" />
 </template>
 
 <script>

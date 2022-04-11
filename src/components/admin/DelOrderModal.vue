@@ -45,6 +45,7 @@
       </div>
     </div>
   </div>
+  <CustomLoading :active="isLoading" />
 </template>
 
 <script>
@@ -54,7 +55,8 @@ export default {
   props: ['item'],
   data () {
     return {
-      modal: {}
+      modal: {},
+      isLoading: false
     }
   },
   methods: {

@@ -1,6 +1,7 @@
 <template>
   <RouterView />
 </template>
+
 <script>
 import emitter from '@/methods/mitt'
 export default {
@@ -11,6 +12,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 // ./當前資料 assets
 @import "./assets/all";

@@ -7,7 +7,7 @@ add_shopping_cart
 </span>
       </p>
       <p class="h1 text-dark mb-5" data-aos="fade-up">你可能會有興趣的產品</p>
-      <template v-if="filterProducts.length > 0">
+      <template v-if="filterProducts.length > 3">
         <swiper
           :breakpoints="breakpoints"
           :loop="true"
@@ -83,7 +83,7 @@ add_shopping_cart
       </template>
     </div>
   </div>
-  <Loading :active="isLoading" />
+  <CustomLoading :active="isLoading" />
 </template>
 
 <script>
@@ -125,6 +125,16 @@ export default {
       default () {
         return ''
       }
+    }
+  },
+  watch: {
+    favorite: {
+      handle () {
+        // localStorage 自訂欄位，不能存json 必需轉字串
+        // 當資料有變動就做寫入，沒有的話就什麼都不做
+        localStorage.setItem('favoriteList', JSON.stringify(this.favoriteList))
+      },
+      deep: true
     }
   },
   computed: {
@@ -215,16 +225,16 @@ export default {
     }
   },
 
-  watch: {
-    favorite: {
-      handle () {
-        // localStorage 自訂欄位，不能存json 必需轉字串
-        // 當資料有變動就做寫入，沒有的話就什麼都不做
-        localStorage.setItem('favoriteList', JSON.stringify(this.favoriteList))
-      },
-      deep: true
-    }
-  },
+  // watch: {
+  //   favorite: {
+  //     handle () {
+  //       // localStorage 自訂欄位，不能存json 必需轉字串
+  //       // 當資料有變動就做寫入，沒有的話就什麼都不做
+  //       localStorage.setItem('favoriteList', JSON.stringify(this.favoriteList))
+  //     },
+  //     deep: true
+  //   }
+  // },
   // 初使化
   mounted () {
     // 把getProducts產品列表運作起來

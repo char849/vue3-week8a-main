@@ -212,6 +212,7 @@
       </div>
     </div>
   </div>
+  <CustomLoading :active="isLoading" />
 </template>
 
 <script>

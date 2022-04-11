@@ -115,7 +115,7 @@
     </div>
   </div>
   <NoticeView />
-  <Loading :active="isLoading"/>
+  <CustomLoading :active="isLoading" />
 </template>
 
 <script>
@@ -130,7 +130,8 @@ export default {
   data () {
     return {
       products: [],
-      favoriteList: []
+      favoriteList: [],
+      isLoading: false
     }
   },
   computed: {

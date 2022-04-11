@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <Loading :active="isLoading"></Loading>
+    <CustomLoading :active="isLoading" />
     <h2>後台產品管理列表</h2>
-    <div class="text-end mt-4">
+    <div class="text-end mt-5">
       <button
         class="btn btn-secondary fw-bold"
         type="button"
