@@ -97,7 +97,7 @@
       </div>
     </div>
   </div>
-  <ProductSwiperView data-aos="fade-up" />
+  <ProductSwiperView :category="category" data-aos="fade-up" />
   <CustomLoading :active="isLoading" />
 </template>
 
@@ -112,13 +112,11 @@ export default {
   },
   data () {
     return {
-      products: [],
       category: '',
       product: {},
       imgUrl: '',
       imagesUrl: [],
       qty: 1,
-      cart_id: [],
       isLoading: false
     }
   },
@@ -146,18 +144,6 @@ export default {
   methods: {
     subImg (item) {
       this.imgUrl = item
-    },
-    getProducts () {
-      this.isLoading = true
-      this.$http
-        .get(
-          `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all` // query 用? 去帶
-        )
-        .then((res) => {
-          // 把產品列表存起來，準備呈現在畫面
-          this.products = res.data.products
-          this.isLoading = false
-        })
     },
     getProduct (id) {
       this.isLoading = true
@@ -207,9 +193,8 @@ export default {
         })
     },
 
-    mounted () {
+    created () {
       this.getProduct()
-      this.getProducts()
     }
   }
 }

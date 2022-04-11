@@ -6,8 +6,8 @@
 add_shopping_cart
 </span>
       </p>
-      <p class="h1 text-dark mb-5" data-aos="fade-up">你可能會有興趣的產品</p>
-      <template v-if="filterProducts.length > 3">
+      <p class="h1 text-dark mb-5" data-aos="fade-up">同品項的產品</p>
+      <template v-if="products.length > 0">
         <swiper
           :breakpoints="breakpoints"
           :loop="true"
@@ -83,7 +83,6 @@ add_shopping_cart
       </template>
     </div>
   </div>
-  <CustomLoading :active="isLoading" />
 </template>
 
 <script>
@@ -93,7 +92,6 @@ export default {
     return {
       products: [],
       favoriteList: [],
-      isLoading: false,
       // 轉成json後，初始化將資料給讀出來，給一個預設值
       // favorite: JSON.parse(localStorage.getItem("favorite")) || [],
       swiper: null,
@@ -139,9 +137,7 @@ export default {
   },
   computed: {
     filterProducts () {
-      return this.products.filter(
-        (item) => this.category === '' || (item.category === this.category && item.id !== this.product.id)
-      )
+      return this.products.filter((item) => this.category === '' || item.category === this.category)
     }
   },
 
@@ -224,17 +220,6 @@ export default {
       this.getFavorite()
     }
   },
-
-  // watch: {
-  //   favorite: {
-  //     handle () {
-  //       // localStorage 自訂欄位，不能存json 必需轉字串
-  //       // 當資料有變動就做寫入，沒有的話就什麼都不做
-  //       localStorage.setItem('favoriteList', JSON.stringify(this.favoriteList))
-  //     },
-  //     deep: true
-  //   }
-  // },
   // 初使化
   mounted () {
     // 把getProducts產品列表運作起來

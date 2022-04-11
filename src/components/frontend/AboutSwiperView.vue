@@ -50,12 +50,14 @@
       </swiper>
     </div>
   </div>
+  <CustomLoading :active="isLoading" />
 </template>
 
 <script>
 export default {
   data () {
     return {
+      isLoading: false,
       swiper: null,
       breakpoints: {
         767: {
