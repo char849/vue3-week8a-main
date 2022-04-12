@@ -51,7 +51,7 @@ export default {
       this.$http
         .post(api)
         .then((res) => {
-          this.$swal(res.data.success, '', 'success')
+          this.$swal(res.data.message, '', 'success')
           if (res.data.success) {
             this.$router.push('/login')
           }

@@ -6,7 +6,7 @@
 add_shopping_cart
 </span>
       </p>
-      <p class="h1 text-dark mb-5" data-aos="fade-up">同品項的產品</p>
+      <p class="h1 text-dark mb-5" data-aos="fade-up">買了這些商品也買了...</p>
       <template v-if="products.length > 0">
         <swiper
           :breakpoints="breakpoints"

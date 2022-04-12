@@ -62,7 +62,7 @@ export default {
         .then((res) => {
           this.$emit('get-products')
           this.delProductModal.hide()
-          this.$swal('res.data.message', '', 'success')
+          this.$swal(res.data.message, '', 'success')
         })
         // 失敗結果
         .catch((err) => {

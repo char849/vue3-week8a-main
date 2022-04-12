@@ -125,10 +125,7 @@ export default {
     // 取得產品列表
     getProducts (page = 1) {
       this.isLoading = true
-      // 陣列包物件
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products?page=${page}`
-      // 物件包物件型式
-      // const url = `${api}/api/${path}/admin/products/all`;
       this.$http
         .get(url)
         .then((res) => {
@@ -149,7 +146,6 @@ export default {
       // })
     },
     openModal (status, product) {
-      console.log(status, product)
       if (status === 'isNew') {
         this.tempProduct = {
           imagesUrl: []

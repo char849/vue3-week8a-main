@@ -121,6 +121,7 @@ export default {
         .delete(url)
         .then((res) => {
           this.$emit('get-orders')
+          this.$swal(res.data.message, '', 'success')
           this.$refs.delOrderModal.hideModal()
           this.getOrders()
         })

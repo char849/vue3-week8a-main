@@ -176,7 +176,7 @@ export default {
       this.$http
         .put(url, { data: paid })
         .then((res) => {
-          this.$swal('res.data.message', '', 'success')
+          this.$swal(res.data.message, '', 'success')
           this.orderModal.hide()
           this.$emit('update-paid')
         })

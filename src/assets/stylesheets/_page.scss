@@ -76,7 +76,9 @@
   &:focus {
     background-color: $secondary !important;
     color: #fff !important;
-  }
+    border-color: transparent !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0) !important;
+  }  
 }
 .list-group-item.active {
   background-color: $secondary !important;
@@ -148,13 +150,15 @@
 .page-item.active .page-link, .page-item {  
    &:focus {
     background-color: $secondary !important;  
-    color: #fff;     
+    color: #fff; 
    }     
   }
   
 .page-item.active .page-link {
   background-color: $secondary !important;  
   color: #fff !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0) !important;  
 }
   
 
@@ -169,6 +173,15 @@
     border-color: transparent !important; 
   }
 }  
+.form-check-input {
+  &:focus {
+    border-color: $success !important; 
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e") !important; 
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0) !important;
+    
+  }
+}
+  
 
 // go-top
 .go-top, .rounded-circle {

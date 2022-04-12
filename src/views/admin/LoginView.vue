@@ -69,6 +69,7 @@ export default {
           // 轉址到後台使用 push() 方法
           // 陣列的概念 ['/','login','admin/products']
           this.$router.push('/admin/products')
+          this.$swal(res.data.message, '', 'success')
         })
         // 失敗結果
         .catch((err) => {

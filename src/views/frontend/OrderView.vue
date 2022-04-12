@@ -297,11 +297,11 @@ export default {
             const { order } = res.data
             this.order = order
           } else {
-            this.$swal(res.data.message, '', 'error')
+            this.$swal(res.data.message, '', 'success')
           }
         })
-        .catch((error) => {
-          this.$swal(error, '', 'error')
+        .catch((err) => {
+          this.$swal(err.response, '', 'error')
         })
     },
     pay (id) {
