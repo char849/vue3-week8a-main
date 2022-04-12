@@ -74,7 +74,6 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#" @click.prevent="toCategory('昆蟲類')">昆蟲類</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#" @click.prevent="toCategory('特殊類')">特殊類</a></li>
           </ul>
         </li>
           <li class="nav-item">
