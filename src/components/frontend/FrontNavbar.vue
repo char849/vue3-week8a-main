@@ -73,7 +73,6 @@
             <li><a class="dropdown-item" href="#" @click.prevent="toCategory('動物科')">動物科</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#" @click.prevent="toCategory('昆蟲類')">昆蟲類</a></li>
-            <li><hr class="dropdown-divider"></li>
           </ul>
         </li>
           <li class="nav-item">
