@@ -89,7 +89,7 @@
             <div class="tab-content w-100">
               <div class="tab-pane fade show active" id="tab-pane-1">
                 <div class="row g-4">
-                  <div class="col-md-6 my-lg-6" style="min-height: 430px">
+                  <div class="col-md-6 my-lg-6" style="min-height: 420px">
                     <div class="position-relative">
                       <img
                         class="position-absolute img-fluid w-100 border rounded p-1"
@@ -124,7 +124,7 @@
               </div>
               <div class="tab-pane fade" id="tab-pane-2">
                 <div class="row g-4">
-                  <div class="col-md-6 my-lg-6" style="min-height: 430px">
+                  <div class="col-md-6 my-lg-6" style="min-height: 420px">
                     <div class="position-relative">
                       <img
                         class="position-absolute img-fluid w-100 border rounded p-1"
@@ -162,7 +162,7 @@
               </div>
               <div class="tab-pane fade" id="tab-pane-3">
                 <div class="row g-4">
-                  <div class="col-md-6 my-lg-5" style="min-height: 220px">
+                  <div class="col-md-6 my-lg-6" style="min-height: 220px">
                     <div class="position-relative w-100">
                       <img
                         class="position-absolute img-fluid border rounded p-1"
@@ -195,7 +195,7 @@
               </div>
               <div class="tab-pane fade" id="tab-pane-4">
                 <div class="row g-4">
-                  <div class="col-md-6 my-lg-5" style="min-height: 240px">
+                  <div class="col-md-6 my-lg-6" style="min-height: 240px">
                     <div class="position-relative w-100">
                       <img
                         class="position-absolute img-fluid border rounded p-1"
