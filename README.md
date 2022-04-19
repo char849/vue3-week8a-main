@@ -11,6 +11,9 @@
 元件資料傳遞：props、$emit
 元件關聯進階方法：$refs
 
+客製化 loading 
+視差滾動 aos
+
 Layout 使用 Bootstrap 5 結合 Scss 切版
 
 使用 Bootstrap-Icons 、Material icons 
