@@ -8,7 +8,7 @@
 加入 ESLint standard 風格
 透過 mitt 傳遞跨元件資料
 
-元件資料傳遞：props、$emit、mitt
+元件資料傳遞：props、$emit
 元件關聯進階方法：$refs
 
 Layout 使用 Bootstrap 5 結合 Scss 切版
