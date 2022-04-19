@@ -29,7 +29,7 @@
           <li class="breadcrumb-item active" aria-current="page">課程招生</li>
         </ol>
       </nav>
-      <div class="container-xxl service pb-5">
+      <div class="container service pb-5">
         <div class="text-center" data-aos="fade-up">
           <h6 class="text-info mt-1 fw-bold text-uppercase">
             線上課程<span class="material-icons-outlined"> approval </span>
