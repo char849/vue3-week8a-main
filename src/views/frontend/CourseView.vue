@@ -29,7 +29,7 @@
           <li class="breadcrumb-item active" aria-current="page">課程招生</li>
         </ol>
       </nav>
-      <div class="container-xxl service pb-5">
+      <div class="container-xxl service mb-5">
         <div class="text-center" data-aos="fade-up">
           <h6 class="text-info mt-1 fw-bold text-uppercase">
             線上課程<span class="material-icons-outlined"> approval </span>
@@ -89,7 +89,7 @@
             <div class="tab-content w-100">
               <div class="tab-pane fade show active" id="tab-pane-1">
                 <div class="row g-4">
-                  <div class="col-md-6 mb-3" style="min-height: 450px">
+                  <div class="col-md-6" style="min-height: 450px">
                     <div class="position-relative">
                       <img
                         class="position-absolute img-fluid w-100 border rounded p-1"
@@ -124,7 +124,7 @@
               </div>
               <div class="tab-pane fade" id="tab-pane-2">
                 <div class="row g-4">
-                  <div class="col-md-6 mb-3" style="min-height: 450px">
+                  <div class="col-md-6" style="min-height: 450px">
                     <div class="position-relative">
                       <img
                         class="position-absolute img-fluid w-100 border rounded p-1"
