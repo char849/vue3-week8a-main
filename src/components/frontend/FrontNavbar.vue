@@ -9,12 +9,12 @@
     >
     <div class="container">
       <h1 class="logo navbar-brand mb-0">
-        <router-link class="d-flex me-2 text-decoration-none" to="/">
+        <RouterLink class="d-flex me-2 text-decoration-none" to="/">
           <img :src="[navClassList.src]" width="130" alt="Logo" />
-        </router-link>
+        </RouterLink>
       </h1>
       <!-- lg 以下 -->
-      <router-link
+      <RouterLink
         class="position-relative d-block d-lg-none ms-auto nav-link"
         to="/favorite"
       >
@@ -27,8 +27,8 @@
             class="badge rounded-pill position-absolute translate-middle top-0 mt-2 bg-secondary"
           >
           </span>
-      </router-link>
-      <router-link
+      </RouterLink>
+      <RouterLink
         class="position-relative navbar-brand d-lg-none nav-link"
         to="/cart"
       >
@@ -40,7 +40,7 @@
           class="badge rounded-pill position-absolute translate-middle top-0 mt-2 bg-secondary"
           >{{ cartData?.carts?.length }}</span
         >
-      </router-link>
+      </RouterLink>
 
       <button class="navbar-toggler" type="button" @click="mobileBtn">
         <i
@@ -51,12 +51,12 @@
       <div class="collapse navbar-collapse" ref="collapse">
         <ul class="navbar-nav me-auto mb-4 mb-lg-0 fw-bold">
           <li class="nav-item">
-            <router-link
+            <RouterLink
               class="nav-link"
               to="/about"
               @click="closeNavHam"
               :class="[navClassList.nav, navClassList.text]"
-              >關於漢文帝</router-link
+              >關於漢文帝</RouterLink
             >
           </li>
           <li class="nav-item dropdown">
@@ -76,19 +76,19 @@
           </ul>
         </li>
           <li class="nav-item">
-            <router-link
+            <RouterLink
               class="nav-link"
               to="/course"
               @click="closeNavHam"
               :class="[navClassList.nav, navClassList.text]"
-              >課程招生</router-link
+              >課程招生</RouterLink
             >
           </li>
         </ul>
       </div>
       <!-- lg 以上 -->
       <div class="navbar-nav">
-        <router-link
+        <RouterLink
           class="position-relative d-flex d-none d-lg-block nav-link"
           to="/favorite"
         >
@@ -101,8 +101,8 @@
             class="badge rounded-pill position-absolute translate-middle top-0 mt-2 bg-secondary"
           >{{ favoriteList?.length }}
           </span>
-        </router-link>
-        <router-link
+        </RouterLink>
+        <RouterLink
           class="position-relative d-flex d-none d-lg-block nav-link"
           to="/cart"
         >
@@ -114,7 +114,7 @@
             class="badge rounded-pill position-absolute translate-middle top-0 mt-2 bg-secondary"
             >{{ cartData?.carts?.length }}</span
           >
-        </router-link>
+        </RouterLink>
       </div>
     </div>
   </nav>

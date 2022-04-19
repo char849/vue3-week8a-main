@@ -3,12 +3,12 @@
 // ~ 是對應到 node_modules 裡面的檔案
 @import "~bootstrap/scss/functions"; // 原生的scss
 
-// ./當前資料 assets
-@import "./stylesheets/helper/variables"; //自定義
-@import "./stylesheets/swiper";
-@import "./stylesheets/header";
-@import "./stylesheets/nav";
-@import "./stylesheets/page";
+// ./當前資料
+@import "./helper/variables"; //自定義
+@import "./swiper";
+@import "./header";
+@import "./nav";
+@import "./page";
 
 
 @import "~bootstrap/scss/bootstrap";

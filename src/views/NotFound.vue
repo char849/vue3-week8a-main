@@ -27,12 +27,12 @@
         倒數  <strong class="text-warning display-1">{{ times }}</strong> 秒
       </div>
 
-      <router-link
+      <RouterLink
         to="/"
         class="btn btn-lg btn-outline-secondary"
       >
         手動回首頁
-      </router-link>
+      </RouterLink>
     </div>
     </div>
   </div>

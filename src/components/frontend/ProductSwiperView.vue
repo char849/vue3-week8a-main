@@ -8,13 +8,13 @@ add_shopping_cart
       </p>
       <p class="h1 text-dark mb-5" data-aos="fade-up">買了這些商品也買了...</p>
       <template v-if="products.length > 0">
-        <swiper
+        <Swiper
           :breakpoints="breakpoints"
           :loop="true"
           navigation
           :autoplay="autoplay"
         >
-          <swiper-slide
+          <SwiperSlide
             class="col-12 col-md-4 mb-4"
             v-for="item in filterProducts"
             :key="item.id"
@@ -78,8 +78,8 @@ add_shopping_cart
                 </div>
               </div>
             </div>
-          </swiper-slide>
-        </swiper>
+          </SwiperSlide>
+        </Swiper>
       </template>
     </div>
   </div>

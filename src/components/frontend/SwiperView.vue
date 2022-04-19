@@ -6,13 +6,13 @@
       </p>
       <p class="h1 text-dark mb-5" data-aos="fade-up">最新熱銷商品</p>
       <template v-if="filterProducts.length > 0">
-        <swiper
+        <Swiper
           :breakpoints="breakpoints"
           :loop="true"
           navigation
           :autoplay="autoplay"
         >
-          <swiper-slide
+          <SwiperSlide
             class="col-12 col-md-4 mb-4"
             v-for="item in filterProducts"
             :key="item.id"
@@ -76,8 +76,8 @@
                 </div>
               </div>
             </div>
-          </swiper-slide>
-        </swiper>
+          </SwiperSlide>
+        </Swiper>
       </template>
     </div>
   </div>

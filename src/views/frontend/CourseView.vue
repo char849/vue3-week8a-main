@@ -22,9 +22,9 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <router-link to="/" class="nav-link text-dark active p-0">
+            <RouterLink to="/" class="nav-link text-dark active p-0">
               首頁
-            </router-link>
+            </RouterLink>
           </li>
           <li class="breadcrumb-item active" aria-current="page">課程招生</li>
         </ol>
@@ -40,7 +40,7 @@
           <div class="col-lg-4">
             <div class="nav w-100 nav-pills me-4">
               <button
-                class="nav-link w-100 d-flex class align-items-center text-start p-4 mb-4 active"
+                class="nav-link nav-link01 w-100 d-flex class align-items-center text-start p-4 mb-4 active"
                 data-bs-toggle="pill"
                 data-bs-target="#tab-pane-1"
                 type="button"

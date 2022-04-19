@@ -3,7 +3,6 @@
   <RouterView />
   <FooterView />
   <button
-      type="btn"
       class="go-top bg-white text-center text-secondary shadow rounded-circle position-fixed"
       v-if="isGoTopBtnShow"
       @click="goTop"

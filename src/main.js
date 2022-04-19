@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import VueSweetalert2 from 'vue-sweetalert2'

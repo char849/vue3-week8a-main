@@ -3,27 +3,27 @@
     class="navbar navbar-expand-lg fixed-top navbar-light text-success fw-bold bg-white"
   >
     <div class="container-fluid">
-      <router-link class="navbar-brand" to="/admin/products">後台首頁</router-link>
+      <RouterLink class="navbar-brand" to="/admin/products">後台首頁</RouterLink>
       <button class="navbar-toggler" type="button" @click="toggleNavHam">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" ref="collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link
+            <RouterLink
               class="nav-link"
               to="/admin/products"
               @click="closeNavHam"
-              >後台產品列表</router-link
+              >後台產品列表</RouterLink
             >
           </li>
 
           <li class="nav-item">
-            <router-link
+            <RouterLink
               class="nav-link"
               to="/admin/orders"
               @click="closeNavHam"
-              >後台訂單列表</router-link
+              >後台訂單列表</RouterLink
             >
           </li>
           <li class="nav-item">

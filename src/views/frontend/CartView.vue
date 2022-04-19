@@ -21,9 +21,9 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <router-link to="/" class="nav-link text-dark active p-0">
+            <RouterLink to="/" class="nav-link text-dark active p-0">
               首頁
-            </router-link>
+            </RouterLink>
           </li>
           <li class="breadcrumb-item active" aria-current="page">購物車</li>
         </ol>
@@ -262,12 +262,12 @@
       <div class="text-center mb-5" v-else>
           <h2 class="text-danger">返回模型館吧</h2>
           <p class="display-3 text-danger mb-3">購物車目前尚無商品!!!</p>
-          <router-link
+          <RouterLink
             to="/products"
             class="fs-5 btn btn-outline-secondary py-3 px-3"
           >
             去逛逛吧 !
-          </router-link>
+          </RouterLink>
         </div>
     </div>
   </div>
@@ -346,6 +346,7 @@ export default {
           // 讀取完後，清空id
           this.isLoadingItem = ''
           this.emitter.emit('get-cart')
+          this.$swal(res.data.message, '', 'success')
         })
     },
     updateCartItem (item) {
@@ -379,6 +380,7 @@ export default {
           this.isLoading = false
           this.getCart()
           this.emitter.emit('get-cart')
+          this.$swal(res.data.message, '', 'success')
         })
     },
     // 送出訂單

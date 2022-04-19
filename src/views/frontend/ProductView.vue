@@ -21,9 +21,9 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <router-link to="/" class="nav-link text-dark active p-0">
+            <RouterLink to="/" class="nav-link text-dark active p-0">
               首頁
-            </router-link>
+            </RouterLink>
           </li>
 
           <li class="breadcrumb-item active" aria-current="page">
@@ -34,7 +34,8 @@
       <div class="col-lg-5 mt-4 col-lg-6">
         <div
           class="card mb-3 bg-cover"
-          :style="{ backgroundImage: 'url(' + imgUrl + ')', height: '400px' }"
+          :style="`backgroundImage: url(${imgUrl})`"
+          style="height: 400px"
         ></div>
         <div class="row">
           <div class="pb-lg-3">
@@ -61,7 +62,7 @@
               {{ product.category }}
             </span>
             <h1 class="h2 mt-2">{{ product.title }}</h1>
-            <div class="h5" v-if="product.price === product.origin_price">
+            <div v-if="product.price === product.origin_price">
               {{ $filters.currency(product.price) }} 元
             </div>
             <div v-else>
@@ -77,7 +78,8 @@
               {{ product.description }}
             </p>
             <p>付款方式： ATM 、 信用卡</p>
-            <div class="card-footer d-flex border-0 bg-white my-2 py-3">
+          </div>
+          <div class="card-footer d-flex border-0 bg-white my-2 py-3">
               <select id="" class="form-select w-25 me-1" v-model="qty">
                 <option :value="num" v-for="num in 5" :key="`${num}-${id}`">
                   {{ num }}
@@ -92,7 +94,6 @@
                 加入購物車
               </button>
             </div>
-          </div>
         </div>
       </div>
     </div>

@@ -21,9 +21,9 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <router-link to="/" class="nav-link text-dark active p-0">
+            <RouterLink to="/" class="nav-link text-dark active p-0">
               首頁
-            </router-link>
+            </RouterLink>
           </li>
           <li class="breadcrumb-item active" aria-current="page">關於漢文帝</li>
         </ol>

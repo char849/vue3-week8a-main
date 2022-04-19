@@ -21,9 +21,9 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <router-link to="/" class="nav-link text-dark active p-0">
+            <RouterLink to="/" class="nav-link text-dark active p-0">
               首頁
-            </router-link>
+            </RouterLink>
           </li>
           <li class="breadcrumb-item active" aria-current="page">購物車清單</li>
         </ol>
@@ -84,8 +84,12 @@
               <h3>收件資訊</h3>
               <table class="table border product-area">
                 <tbody>
-                  <tr><td colspan="2" class="text-info fw-bold"><i class="bi bi-bell-fill"></i> 感謝您的購買，今日下單，如有現貨，工作日 16:00 前訂單，當日出貨
-</td></tr>
+                  <tr>
+                    <td colspan="2" class="text-info fw-bold">
+                      <i class="bi bi-bell-fill"></i>
+                      感謝您的購買，今日下單，如有現貨，工作日 16:00 前訂單，當日出貨
+                    </td>
+                  </tr>
                   <tr>
                     <th style="width: 100px">姓名</th>
                     <td>{{ order.user.name }}</td>

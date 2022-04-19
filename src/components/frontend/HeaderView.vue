@@ -9,7 +9,7 @@
         <p class="fw-bold" data-aos="fade-up">
           擅長寫實風格 生物 人物 製做 由3D建模搭配3D列印後 手修雕塑上色
         </p>
-        <router-link
+        <RouterLink
           to="/products"
           role="button"
           id="btn02"
@@ -17,7 +17,7 @@
           data-aos="fade-up"
         >
           進來逛逛
-        </router-link>
+        </RouterLink>
       </div>
       <button
         class="btn aboutBtn position-absolute fw-bold d-flex flex-column align-items-center text-white"
@@ -55,14 +55,14 @@
           依照客製需求照片，全部滙整起來，將各個角度照片準備好了開始繪製3D設計稿，及後續3D建模列印。
           列印出來的模型通常都是單色，依照列印材料原本的單色所產出就是什麼色。
         </p>
-        <router-link
+        <RouterLink
           to="/about"
           id="btn02"
           class="col-8 col-md-6 mt-5 fw-bold btn btn-outline-secondary"
           data-aos="fade-up"
         >
           關於漢文帝
-        </router-link>
+        </RouterLink>
       </div>
     </div>
     <div class="row mb-2 flex-md-row-reverse" data-aos="fade-up">
@@ -90,14 +90,14 @@
           上色時需以來回平塗兩到三遍，可使手繪時產生的筆紋減淡，令色彩均勻飽滿，可以在第一層快干還沒幹時再上第二層，第二層的筆刷方向和第一層垂直，已達到最好的效果。
           使用的顏料主要有水性漆和油性漆兩大類。水性漆附著力和色彩表現都比油性漆略差一點（尤其是色澤表現上），但毒性性小或無毒。為了顏料可以更流暢色彩均勻的進行塗裝，可以滴入一些同品牌的溶劑在調色皿裡面進行稀釋。手工上色比較考驗操作人員的熟練程度，所以效果波動會比較大。
         </p>
-        <router-link
+        <RouterLink
           to="/about"
           id="btn02"
           class="col-8 col-md-6 mt-5 fw-bold btn btn-outline-secondary"
           data-aos="fade-up"
         >
           關於漢文帝
-        </router-link>
+        </RouterLink>
       </div>
     </div>
   </div>
